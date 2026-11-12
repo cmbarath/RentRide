@@ -1,0 +1,6 @@
+{
+  "name": "RentRide – Premium Car & Bike Rental Platform",
+  "description": "Modern on-demand car and bike rental platform with instant booking, KYC licence verification, and comprehensive fleet & business admin dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
