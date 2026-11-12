@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import crypto from 'crypto';
 import { chromium } from 'playwright';
 import { createClient } from '@supabase/supabase-js';
 
@@ -106,7 +107,7 @@ async function main() {
   const qaEmailA = `qa.p7.a.${ts}@rentride-qa.test`;
   const qaEmailB = `qa.p7.b.${ts}@rentride-qa.test`;
   const qaEmailFm = `qa.p7.fm.${ts}@rentride-qa.test`;
-  const qaPass = 'REDACTED_DISPOSABLE_TEST_PASSWORD';
+  const qaPass = `QaP7#${crypto.randomBytes(8).toString('hex')}!`;
 
   const qaVehName = `QA Thar Roxx ${qaSuffix}`;
   const qaRegNo = `TN 09 P7 ${qaSuffix.slice(-4)}`;
@@ -172,10 +173,16 @@ async function main() {
     }
     const [qaCustAId, qaCustBId, qaFmId] = cleanup.userIds;
 
+    const qaAdminEmail = process.env.QA_ADMIN_EMAIL;
+    const qaAdminPass = process.env.QA_ADMIN_PASSWORD;
+    if (!qaAdminEmail || !qaAdminPass) {
+      throw new Error('Set QA_ADMIN_EMAIL and QA_ADMIN_PASSWORD in .env.local before running QA suite.');
+    }
+
     const custAApi = await signInApiClient(qaEmailA, qaPass);
     const custBApi = await signInApiClient(qaEmailB, qaPass);
     const fmApi = await signInApiClient(qaEmailFm, qaPass);
-    const adminApi = await signInApiClient('admin@rentride.in', 'REDACTED_ROTATED_ADMIN_PASSWORD');
+    const adminApi = await signInApiClient(qaAdminEmail, qaAdminPass);
 
     const sampleVehRes = await fetch(`${BASE_URL}/api/vehicles?limit=1`).then((r) => r.json());
     const sampleCoverImg = sampleVehRes.vehicles?.[0]?.coverImage || '/images/cars/mahindra-scorpio-n.jpg';
@@ -345,8 +352,8 @@ async function main() {
     const tAdminStart = Date.now();
     await adminPage.goto(`${BASE_URL}/admin`, { waitUntil: 'domcontentloaded' });
     await adminPage.waitForSelector('input[placeholder="admin@rentride.in"]', { timeout: 15000 });
-    await adminPage.fill('input[placeholder="admin@rentride.in"]', 'admin@rentride.in');
-    await adminPage.fill('input[placeholder="••••••••"]', 'REDACTED_ROTATED_ADMIN_PASSWORD');
+    await adminPage.fill('input[placeholder="admin@rentride.in"]', qaAdminEmail);
+    await adminPage.fill('input[placeholder="••••••••"]', qaAdminPass);
     await adminPage.getByRole('button', { name: 'Sign In as Administrator' }).click();
     await adminPage.waitForSelector('text=Tamil Nadu Fleet Operations & Telemetry', { timeout: 20000 });
     perfMetrics.adminLoadMs = Date.now() - tAdminStart;

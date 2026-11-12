@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import fs from 'fs';
+import { createEphemeralQaCustomer, cleanupEphemeralQaUsers } from './qa-temp-users.mjs';
 
 function loadEnv() {
   const content = fs.readFileSync('.env.local', 'utf-8');
@@ -41,11 +42,31 @@ async function main() {
     auth: { autoRefreshToken: false, persistSession: false },
   });
 
-  // 1. Authenticate Customer A
+  const adminEmail = envConfig.QA_ADMIN_EMAIL;
+  const adminPass = envConfig.QA_ADMIN_PASSWORD;
+
+  if (!adminEmail || !adminPass) {
+    console.error('Set QA_ADMIN_EMAIL and QA_ADMIN_PASSWORD in .env.local before running.');
+    process.exit(1);
+  }
+
+  const ephemeralIds = [];
+  const custA = await createEphemeralQaCustomer(adminClient, 'audit-a');
+  ephemeralIds.push(custA.id);
+  const custB = await createEphemeralQaCustomer(adminClient, 'audit-b');
+  ephemeralIds.push(custB.id);
+
+  const custAEmail = custA.email;
+  const custAPhone = custA.phone;
+  const custBEmail = custB.email;
+  const custBPhone = custB.phone;
+
+  try {
+  // 1. Authenticate Ephemeral Customer A
   const custAAuth = createClient(supabaseUrl, anonKey, { auth: { persistSession: false } });
   const { data: custASession, error: aErr } = await custAAuth.auth.signInWithPassword({
-    email: 'qa-deleted-customer-a@example.invalid',
-    password: 'REDACTED_DELETED_QA_PASSWORD',
+    email: custA.email,
+    password: custA.password,
   });
   if (aErr || !custASession.session) {
     console.error('Failed to authenticate Customer A:', aErr);
@@ -54,11 +75,11 @@ async function main() {
   const tokenA = custASession.session.access_token;
   const userAId = custASession.user.id;
 
-  // 2. Authenticate Customer B
+  // 2. Authenticate Ephemeral Customer B
   const custBAuth = createClient(supabaseUrl, anonKey, { auth: { persistSession: false } });
   const { data: custBSession, error: bErr } = await custBAuth.auth.signInWithPassword({
-    email: 'qa-deleted-customer-b@example.invalid',
-    password: 'REDACTED_DELETED_QA_PASSWORD',
+    email: custB.email,
+    password: custB.password,
   });
   if (bErr || !custBSession.session) {
     console.error('Failed to authenticate Customer B:', bErr);
@@ -70,8 +91,8 @@ async function main() {
   // 3. Authenticate Admin
   const adminAuth = createClient(supabaseUrl, anonKey, { auth: { persistSession: false } });
   const { data: adminSession, error: admErr } = await adminAuth.auth.signInWithPassword({
-    email: 'admin@rentride.in',
-    password: 'REDACTED_ROTATED_ADMIN_PASSWORD',
+    email: adminEmail,
+    password: adminPass,
   });
   if (admErr || !adminSession.session) {
     console.error('Failed to authenticate Admin:', admErr);
@@ -228,8 +249,8 @@ async function main() {
       p_delivery_type: 'hub',
       p_delivery_address: null,
       p_customer_name: 'Customer A Test',
-      p_customer_email: 'qa-deleted-customer-a@example.invalid',
-      p_customer_phone: '9000000001',
+      p_customer_email: custAEmail,
+      p_customer_phone: custAPhone,
       p_licence_id: null,
       p_licence_number: 'TN-01-20230001234',
       p_duration_days: 2,
@@ -262,8 +283,8 @@ async function main() {
       p_delivery_type: 'hub',
       p_delivery_address: null,
       p_customer_name: 'Customer B Test',
-      p_customer_email: 'qa-deleted-customer-b@example.invalid',
-      p_customer_phone: '9000000002',
+      p_customer_email: custBEmail,
+      p_customer_phone: custBPhone,
       p_licence_id: null,
       p_licence_number: 'TN-02-20230005678',
       p_duration_days: 2,
@@ -296,8 +317,8 @@ async function main() {
     p_delivery_type: 'hub',
     p_delivery_address: null,
     p_customer_name: 'Customer B Test',
-    p_customer_email: 'qa-deleted-customer-b@example.invalid',
-    p_customer_phone: '9000000002',
+    p_customer_email: custBEmail,
+    p_customer_phone: custBPhone,
     p_licence_id: null,
     p_licence_number: 'TN-02-20230005678',
     p_duration_days: 2,
@@ -535,7 +556,7 @@ async function main() {
         body: JSON.stringify({
           bookingId: bookingAId,
           customerName: 'Customer A Test',
-          customerEmail: 'qa-deleted-customer-a@example.invalid',
+          customerEmail: custAEmail,
           amount: 5840,
           paymentMethod: 'Cash',
           type: 'rental_charge',
@@ -579,6 +600,9 @@ async function main() {
 
   // Clean up test admin vehicle
   await adminClient.from('vehicles').delete().eq('id', adminVehId);
+  } finally {
+    await cleanupEphemeralQaUsers(adminClient, ephemeralIds);
+  }
 
   // Summary Table
   console.log('\n======================================================');

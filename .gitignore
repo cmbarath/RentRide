@@ -4,18 +4,23 @@
 .pnp.js
 .yarn/cache
 
-# Testing
+# Testing & Playwright reports
 /coverage
+/playwright-report/
+/test-results/
+/scripts/.tmp*
 
-# Next.js build output
+# Next.js & Vercel build output
 /.next/
 /out/
+/.vercel
 
 # Production build artifacts
 /build
 /dist
 
-# Debug logs
+# Debug & local logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -31,6 +36,13 @@ yarn-error.log*
 
 # Allow env example template
 !.env.example
+
+# Supabase CLI temporary linkage/cache state
+supabase/.temp/
+.supabase/
+
+# Local private customer or driving licence documents
+/driving-licences/
 
 # OS generated files
 .DS_Store

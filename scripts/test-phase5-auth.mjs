@@ -1,7 +1,9 @@
 import fs from 'fs';
 import path from 'path';
+import crypto from 'crypto';
 import { createClient } from '@supabase/supabase-js';
 import { createServerClient } from '@supabase/ssr';
+import { createEphemeralQaCustomer, cleanupEphemeralQaUsers } from './qa-temp-users.mjs';
 
 // Load .env.local cleanly without external dependencies
 const envPath = path.resolve(process.cwd(), '.env.local');
@@ -130,17 +132,29 @@ async function runPhase5AuthTests() {
 
   const uniq = Date.now();
   const qaCustomerEmail = `qa.phase5.${uniq}@gmail.com`;
-  const qaCustomerPass = 'REDACTED_DISPOSABLE_TEST_PASSWORD';
-  const qaCustomerNewPass = 'REDACTED_DISPOSABLE_TEST_PASSWORD';
+  const qaCustomerPass = `QaP5#${crypto.randomBytes(8).toString('hex')}!`;
+  const qaCustomerNewPass = `QaP5New#${crypto.randomBytes(8).toString('hex')}!`;
   const qaFleetEmail = `qa.fleetmgr.${uniq}@gmail.com`;
-  const qaFleetPass = 'REDACTED_DISPOSABLE_TEST_PASSWORD';
+  const qaFleetPass = `QaFm#${crypto.randomBytes(8).toString('hex')}!`;
 
-  // Existing verified test accounts from project state
-  const custAEmail = 'qa-deleted-customer-a@example.invalid';
-  const custAPass = 'REDACTED_DELETED_QA_PASSWORD';
-  const custBId = '00000000-0000-0000-0000-000000000002';
-  const adminEmail = 'admin@rentride.in';
-  const adminPass = 'REDACTED_ROTATED_ADMIN_PASSWORD';
+  // Administrator credentials loaded from local .env.local (never hardcoded)
+  const adminEmail = process.env.QA_ADMIN_EMAIL;
+  const adminPass = process.env.QA_ADMIN_PASSWORD;
+
+  if (!adminEmail || !adminPass) {
+    console.error('Set QA_ADMIN_EMAIL and QA_ADMIN_PASSWORD in .env.local before running.');
+    process.exit(1);
+  }
+
+  // Provision two ephemeral isolated customers instead of fixed fake accounts
+  const custA = await createEphemeralQaCustomer(adminSetupClient, 'p5-cust-a');
+  qaUserIdsToCleanup.push(custA.id);
+  const custB = await createEphemeralQaCustomer(adminSetupClient, 'p5-cust-b');
+  qaUserIdsToCleanup.push(custB.id);
+
+  const custAEmail = custA.email;
+  const custAPass = custA.password;
+  const custBId = custB.id;
 
   try {
     // ------------------------------------------------------------------
@@ -810,12 +824,8 @@ async function runPhase5AuthTests() {
   } finally {
     // Cleanup ONLY temporary disposable QA accounts created by this suite
     console.log('\n--- Cleaning Up Disposable QA Accounts ---');
-    const uniqueCleanupIds = Array.from(new Set(qaUserIdsToCleanup));
-    for (const uid of uniqueCleanupIds) {
-      await adminSetupClient.from('profiles').delete().eq('id', uid);
-      await adminSetupClient.auth.admin.deleteUser(uid);
-      console.log(`Cleaned up disposable QA user: ${uid}`);
-    }
+    await cleanupEphemeralQaUsers(adminSetupClient, qaUserIdsToCleanup);
+    console.log(`Cleaned up ${Array.from(new Set(qaUserIdsToCleanup)).length} disposable QA user(s).`);
   }
 
   const passed = results.filter((r) => r.status === 'PASS').length;

@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import crypto from 'crypto';
 import { chromium } from 'playwright';
 import { createClient } from '@supabase/supabase-js';
 
@@ -69,7 +70,7 @@ async function main() {
 
   const ts = Date.now();
   const qaEmail = `qa.phase6.${ts}@rentride-qa.test`;
-  const qaPassword = 'REDACTED_DISPOSABLE_TEST_PASSWORD';
+  const qaPassword = `QaP6#${crypto.randomBytes(8).toString('hex')}!`;
   const qaRegNo = `TN 09 QA ${String(ts).slice(-4)}`;
   const qaVehName = `QA Maruti Jimny ${String(ts).slice(-4)}`;
   let qaUserId = '';
@@ -324,10 +325,16 @@ async function main() {
     const adminPage = await adminContext.newPage();
     await attachErrorCollectors(adminPage, 'Admin', errorCollector);
 
+    const adminEmail = process.env.QA_ADMIN_EMAIL;
+    const adminPassword = process.env.QA_ADMIN_PASSWORD;
+    if (!adminEmail || !adminPassword) {
+      throw new Error('Set QA_ADMIN_EMAIL and QA_ADMIN_PASSWORD in .env.local before running E2E suite.');
+    }
+
     await adminPage.goto(`${BASE_URL}/admin`, { waitUntil: 'domcontentloaded' });
     await adminPage.waitForSelector('input[placeholder="admin@rentride.in"]', { timeout: 15000 });
-    await adminPage.fill('input[placeholder="admin@rentride.in"]', 'admin@rentride.in');
-    await adminPage.fill('input[placeholder="••••••••"]', 'REDACTED_ROTATED_ADMIN_PASSWORD');
+    await adminPage.fill('input[placeholder="admin@rentride.in"]', adminEmail);
+    await adminPage.fill('input[placeholder="••••••••"]', adminPassword);
     await adminPage.getByRole('button', { name: 'Sign In as Administrator' }).click();
     await adminPage.waitForSelector('text=Tamil Nadu Fleet Operations & Telemetry', { timeout: 20000 });
     record('A-1', 'Admin UI', 'Administrator signs into Fleet Operations Console cleanly', true);

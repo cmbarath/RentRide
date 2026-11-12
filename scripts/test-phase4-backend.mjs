@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import fs from 'fs';
+import { createEphemeralQaCustomer, cleanupEphemeralQaUsers } from './qa-temp-users.mjs';
 
 function loadEnv() {
   const content = fs.readFileSync('.env.local', 'utf-8');
@@ -40,20 +41,40 @@ async function main() {
     auth: { autoRefreshToken: false, persistSession: false },
   });
 
-  // Authenticate Customer A
+  const adminEmail = envConfig.QA_ADMIN_EMAIL;
+  const adminPass = envConfig.QA_ADMIN_PASSWORD;
+
+  if (!adminEmail || !adminPass) {
+    console.error('Set QA_ADMIN_EMAIL and QA_ADMIN_PASSWORD in .env.local before running.');
+    process.exit(1);
+  }
+
+  const ephemeralIds = [];
+  const custA = await createEphemeralQaCustomer(adminClient, 'p4-a');
+  ephemeralIds.push(custA.id);
+  const custB = await createEphemeralQaCustomer(adminClient, 'p4-b');
+  ephemeralIds.push(custB.id);
+
+  const custAEmail = custA.email;
+  const custAPhone = custA.phone;
+  const custBEmail = custB.email;
+  const custBPhone = custB.phone;
+
+  try {
+  // Authenticate Ephemeral Customer A
   const custAAuth = createClient(supabaseUrl, anonKey, { auth: { persistSession: false } });
   const { data: custASession } = await custAAuth.auth.signInWithPassword({
-    email: 'qa-deleted-customer-a@example.invalid',
-    password: 'REDACTED_DELETED_QA_PASSWORD',
+    email: custA.email,
+    password: custA.password,
   });
   const tokenA = custASession.session.access_token;
   const userAId = custASession.user.id;
 
-  // Authenticate Customer B
+  // Authenticate Ephemeral Customer B
   const custBAuth = createClient(supabaseUrl, anonKey, { auth: { persistSession: false } });
   const { data: custBSession } = await custBAuth.auth.signInWithPassword({
-    email: 'qa-deleted-customer-b@example.invalid',
-    password: 'REDACTED_DELETED_QA_PASSWORD',
+    email: custB.email,
+    password: custB.password,
   });
   const tokenB = custBSession.session.access_token;
   const userBId = custBSession.user.id;
@@ -61,8 +82,8 @@ async function main() {
   // Authenticate Admin
   const adminAuth = createClient(supabaseUrl, anonKey, { auth: { persistSession: false } });
   const { data: adminSession } = await adminAuth.auth.signInWithPassword({
-    email: 'admin@rentride.in',
-    password: 'REDACTED_ROTATED_ADMIN_PASSWORD',
+    email: adminEmail,
+    password: adminPass,
   });
   const tokenAdmin = adminSession.session.access_token;
   const adminId = adminSession.user.id;
@@ -245,8 +266,8 @@ async function main() {
         returnLocation: 'Chennai Central Hub',
         deliveryType: 'hub',
         customerName: 'QA Customer A',
-        customerEmail: 'qa-deleted-customer-a@example.invalid',
-        customerPhone: '9000000001',
+        customerEmail: custAEmail,
+        customerPhone: custAPhone,
       }),
     });
     const body = await res.json();
@@ -268,9 +289,9 @@ async function main() {
         pickupLocation: 'Chennai Central Hub',
         returnLocation: 'Chennai Central Hub',
         deliveryType: 'hub',
-        customerName: 'Chitra',
-        customerEmail: 'qa-deleted-customer-b@example.invalid',
-        customerPhone: '9000000002',
+        customerName: 'QA Customer B',
+        customerEmail: custBEmail,
+        customerPhone: custBPhone,
       }),
     });
     const body = await res.json();
@@ -406,7 +427,7 @@ async function main() {
       headers: { Authorization: `Bearer ${tokenA}` },
     });
     const body = await res.json();
-    recordTest('E-1', 'Customers', 'Customer retrieves own profile & booking summary', res.status === 200 && body.profile?.email === 'qa-deleted-customer-a@example.invalid');
+    recordTest('E-1', 'Customers', 'Customer retrieves own profile & booking summary', res.status === 200 && body.profile?.email === custAEmail);
   }
 
   // Test E-2: Customer updates own profile
@@ -525,8 +546,8 @@ async function main() {
         returnLocation: 'Chennai Central Hub',
         deliveryType: 'hub',
         customerName: 'QA Customer A',
-        customerEmail: 'qa-deleted-customer-a@example.invalid',
-        customerPhone: '9000000001',
+        customerEmail: custAEmail,
+        customerPhone: custAPhone,
       }),
     });
     const bJson = await bRes.json();
@@ -538,7 +559,7 @@ async function main() {
       body: JSON.stringify({
         bookingId: sampleBookingForPayment,
         customerName: 'QA Customer A',
-        customerEmail: 'qa-deleted-customer-a@example.invalid',
+        customerEmail: custAEmail,
         amount: 5400,
         paymentMethod: 'Cash',
         type: 'rental_charge',
@@ -557,7 +578,7 @@ async function main() {
       body: JSON.stringify({
         bookingId: sampleBookingForPayment,
         customerName: 'QA Customer A',
-        customerEmail: 'qa-deleted-customer-a@example.invalid',
+        customerEmail: custAEmail,
         amount: 5400,
         paymentMethod: 'Cash',
       }),
@@ -694,6 +715,9 @@ async function main() {
     await adminClient.from('notification_logs').delete().eq('booking_id', sampleBookingForPayment);
     await adminClient.from('booking_status_history').delete().eq('booking_id', sampleBookingForPayment);
     await adminClient.from('bookings').delete().eq('id', sampleBookingForPayment);
+  }
+  } finally {
+    await cleanupEphemeralQaUsers(adminClient, ephemeralIds);
   }
 
   // Summary
