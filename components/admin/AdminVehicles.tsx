@@ -22,7 +22,7 @@ import {
   Upload,
   Loader2,
 } from 'lucide-react';
-import { getVehicleImagePath } from '@/lib/vehicle-images';
+import { getVehicleImagePath, getSafeImageUrl } from '@/lib/vehicle-images';
 
 const CAR_CATEGORIES: VehicleCategory[] = ['Hatchback', 'Sedan', 'SUV', 'Family MPV', 'Luxury', 'Electric SUV'];
 const BIKE_CATEGORIES: VehicleCategory[] = [
@@ -398,11 +398,16 @@ export const AdminVehicles: React.FC = () => {
                       <div className="flex items-center gap-3">
                         <div className="w-12 h-9 rounded-lg overflow-hidden bg-gray-100 border border-gray-200 shrink-0">
                           <img
-                            src={v.coverImage}
+                            src={getSafeImageUrl(v.coverImage)}
                             alt={v.name}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover object-center"
                             onError={(e) => {
-                              (e.target as HTMLImageElement).src = getVehicleImagePath(v.name, v.type);
+                              const fallback = getVehicleImagePath(v.name, v.type);
+                              const target = e.target as HTMLImageElement;
+                              const safeFallback = getSafeImageUrl(fallback);
+                              if (target.src !== safeFallback) {
+                                target.src = safeFallback;
+                              }
                             }}
                           />
                         </div>
@@ -718,11 +723,16 @@ export const AdminVehicles: React.FC = () => {
                   </label>
                   <div className="w-16 h-12 rounded-lg overflow-hidden border border-gray-300 bg-gray-100 shrink-0">
                     <img
-                      src={formCoverImage}
+                      src={getSafeImageUrl(formCoverImage)}
                       alt="Preview"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover object-center"
                       onError={(e) => {
-                        (e.target as HTMLImageElement).src = getVehicleImagePath(formName, formType);
+                        const fallback = getVehicleImagePath(formName, formType);
+                        const target = e.target as HTMLImageElement;
+                        const safeFallback = getSafeImageUrl(fallback);
+                        if (target.src !== safeFallback) {
+                          target.src = safeFallback;
+                        }
                       }}
                     />
                   </div>

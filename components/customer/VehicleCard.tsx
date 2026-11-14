@@ -4,7 +4,7 @@ import React from 'react';
 import { Vehicle } from '@/types/vehicle';
 import { useApp } from '@/context/AppContext';
 import { Star, MapPin, Fuel, Gauge, Users, ArrowRight } from 'lucide-react';
-import { getVehicleImage } from '@/lib/vehicle-images';
+import { getVehicleImage, getSafeImageUrl } from '@/lib/vehicle-images';
 
 interface VehicleCardProps {
   vehicle: Vehicle;
@@ -33,19 +33,24 @@ export const VehicleCard: React.FC<VehicleCardProps> = ({ vehicle }) => {
 
   // Safe image path resolution
   const resolvedCover = vehicle.coverImage || getVehicleImage(vehicle.slug || vehicle.model, vehicle.type).coverImage;
+  const safeCoverUrl = getSafeImageUrl(resolvedCover);
 
   return (
-    <div className="bg-white rounded-2xl border border-gray-200/90 overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 flex flex-col group">
+    <div className="bg-white rounded-2xl border border-gray-200/90 overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 flex flex-col group h-full">
       {/* Vehicle Image Container */}
-      <div className="relative aspect-[4/3] bg-gray-100 overflow-hidden cursor-pointer" onClick={handleViewDetails}>
+      <div className="relative aspect-[16/10] bg-gradient-to-b from-gray-50 via-gray-100 to-gray-200/50 overflow-hidden cursor-pointer" onClick={handleViewDetails}>
         <img
-          src={resolvedCover}
+          src={safeCoverUrl}
           alt={`${vehicle.brand} ${vehicle.model}`}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
           loading="lazy"
           onError={(e) => {
             const fallback = getVehicleImage(vehicle.name, vehicle.type).coverImage;
-            (e.target as HTMLImageElement).src = fallback;
+            const target = e.target as HTMLImageElement;
+            const safeFallback = getSafeImageUrl(fallback);
+            if (target.src !== safeFallback) {
+              target.src = safeFallback;
+            }
           }}
         />
 

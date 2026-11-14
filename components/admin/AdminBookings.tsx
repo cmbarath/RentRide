@@ -24,6 +24,7 @@ import {
   Key,
   Loader2,
 } from 'lucide-react';
+import { getVehicleImagePath, getSafeImageUrl } from '@/lib/vehicle-images';
 
 export const AdminBookings: React.FC = () => {
   const {
@@ -278,15 +279,34 @@ export const AdminBookings: React.FC = () => {
                       <div className="text-[10px] text-gray-400">{b.customerEmail}</div>
                     </td>
                     <td className="py-3 px-3">
-                      <div className="flex items-center gap-2">
-                        {b.vehicleType === 'car' ? (
-                          <Car className="w-3.5 h-3.5 text-gray-500" />
-                        ) : (
-                          <Bike className="w-3.5 h-3.5 text-gray-500" />
-                        )}
-                        <span className="font-semibold text-gray-800">{b.vehicleName}</span>
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-10 h-8 rounded-lg overflow-hidden bg-gray-100 border border-gray-200 shrink-0">
+                          <img
+                            src={getSafeImageUrl(b.vehicleImage || getVehicleImagePath(b.vehicleName, b.vehicleType))}
+                            alt={b.vehicleName}
+                            className="w-full h-full object-cover object-center"
+                            onError={(e) => {
+                              const fallback = getVehicleImagePath(b.vehicleName, b.vehicleType);
+                              const target = e.target as HTMLImageElement;
+                              const safeFallback = getSafeImageUrl(fallback);
+                              if (target.src !== safeFallback) {
+                                target.src = safeFallback;
+                              }
+                            }}
+                          />
+                        </div>
+                        <div>
+                          <div className="flex items-center gap-1.5">
+                            {b.vehicleType === 'car' ? (
+                              <Car className="w-3.5 h-3.5 text-gray-500 shrink-0" />
+                            ) : (
+                              <Bike className="w-3.5 h-3.5 text-gray-500 shrink-0" />
+                            )}
+                            <span className="font-semibold text-gray-800 leading-tight">{b.vehicleName}</span>
+                          </div>
+                          <div className="text-[10px] text-gray-400 capitalize">{b.vehicleBrand}</div>
+                        </div>
                       </div>
-                      <div className="text-[10px] text-gray-400 capitalize">{b.vehicleBrand}</div>
                     </td>
                     <td className="py-3 px-3">
                       <div className="font-medium text-gray-800">
@@ -395,6 +415,28 @@ export const AdminBookings: React.FC = () => {
             </div>
 
             <div className="p-6 space-y-4">
+              <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-xl border border-gray-200">
+                <div className="w-16 h-12 rounded-lg overflow-hidden bg-white border border-gray-200 shrink-0">
+                  <img
+                    src={getSafeImageUrl(selectedBooking.vehicleImage || getVehicleImagePath(selectedBooking.vehicleName, selectedBooking.vehicleType))}
+                    alt={selectedBooking.vehicleName}
+                    className="w-full h-full object-cover object-center"
+                    onError={(e) => {
+                      const fallback = getVehicleImagePath(selectedBooking.vehicleName, selectedBooking.vehicleType);
+                      const target = e.target as HTMLImageElement;
+                      const safeFallback = getSafeImageUrl(fallback);
+                      if (target.src !== safeFallback) {
+                        target.src = safeFallback;
+                      }
+                    }}
+                  />
+                </div>
+                <div>
+                  <span className="font-extrabold text-sm text-gray-900 block leading-tight">{selectedBooking.vehicleName}</span>
+                  <span className="text-[11px] text-gray-500 capitalize">{selectedBooking.vehicleType} · {selectedBooking.vehicleBrand}</span>
+                </div>
+              </div>
+
               <div className="grid grid-cols-2 gap-3 text-xs bg-gray-50 p-3.5 rounded-xl border border-gray-200">
                 <div>
                   <span className="text-gray-400 block">Customer Name:</span>

@@ -17,6 +17,7 @@ import {
   Loader2,
 } from 'lucide-react';
 import { Booking } from '@/types';
+import { getVehicleImagePath, getSafeImageUrl } from '@/lib/vehicle-images';
 
 function isWithinDateWindow(dateIso: string | undefined, period: 'today' | 'week' | 'month' | 'year'): boolean {
   if (!dateIso) return true;
@@ -383,20 +384,37 @@ export const AdminDashboardOverview: React.FC = () => {
             <div className="divide-y divide-gray-100 max-h-72 overflow-y-auto">
               {pendingApprovals.map((b) => (
                 <div key={b.id} className="py-3 flex items-center justify-between gap-4">
-                  <div className="space-y-0.5">
-                    <div className="flex items-center gap-2">
-                      <span className="font-mono text-xs font-bold text-gray-900">{b.id}</span>
-                      <span className="text-xs font-semibold text-gray-800">· {b.vehicleName}</span>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-8 rounded-lg overflow-hidden bg-gray-100 border border-gray-200 shrink-0">
+                      <img
+                        src={getSafeImageUrl(b.vehicleImage || getVehicleImagePath(b.vehicleName, b.vehicleType))}
+                        alt={b.vehicleName}
+                        className="w-full h-full object-cover object-center"
+                        onError={(e) => {
+                          const fallback = getVehicleImagePath(b.vehicleName, b.vehicleType);
+                          const target = e.target as HTMLImageElement;
+                          const safeFallback = getSafeImageUrl(fallback);
+                          if (target.src !== safeFallback) {
+                            target.src = safeFallback;
+                          }
+                        }}
+                      />
                     </div>
-                    <div className="text-xs text-gray-500 flex items-center gap-2">
-                      <span className="font-medium text-gray-700">{b.customerName}</span>
-                      <span>•</span>
-                      <span>{b.customerPhone}</span>
-                      <span>•</span>
-                      <span className="text-[11px] text-gray-400">DL: {b.licenceNumber || 'Attached'}</span>
-                    </div>
-                    <div className="text-[11px] text-gray-400">
-                      {formatDisplayDate(b.pickupDate)} → {formatDisplayDate(b.returnDate)} ({b.durationDays} days) · {b.pickupLocation}
+                    <div className="space-y-0.5">
+                      <div className="flex items-center gap-2">
+                        <span className="font-mono text-xs font-bold text-gray-900">{b.id}</span>
+                        <span className="text-xs font-semibold text-gray-800">· {b.vehicleName}</span>
+                      </div>
+                      <div className="text-xs text-gray-500 flex items-center gap-2">
+                        <span className="font-medium text-gray-700">{b.customerName}</span>
+                        <span>•</span>
+                        <span>{b.customerPhone}</span>
+                        <span>•</span>
+                        <span className="text-[11px] text-gray-400">DL: {b.licenceNumber || 'Attached'}</span>
+                      </div>
+                      <div className="text-[11px] text-gray-400">
+                        {formatDisplayDate(b.pickupDate)} → {formatDisplayDate(b.returnDate)} ({b.durationDays} days) · {b.pickupLocation}
+                      </div>
                     </div>
                   </div>
 
@@ -446,6 +464,28 @@ export const AdminDashboardOverview: React.FC = () => {
             </div>
 
             <div className="p-6 space-y-4">
+              <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-xl border border-gray-200">
+                <div className="w-16 h-12 rounded-lg overflow-hidden bg-white border border-gray-200 shrink-0">
+                  <img
+                    src={getSafeImageUrl(selectedAuditBooking.vehicleImage || getVehicleImagePath(selectedAuditBooking.vehicleName, selectedAuditBooking.vehicleType))}
+                    alt={selectedAuditBooking.vehicleName}
+                    className="w-full h-full object-cover object-center"
+                    onError={(e) => {
+                      const fallback = getVehicleImagePath(selectedAuditBooking.vehicleName, selectedAuditBooking.vehicleType);
+                      const target = e.target as HTMLImageElement;
+                      const safeFallback = getSafeImageUrl(fallback);
+                      if (target.src !== safeFallback) {
+                        target.src = safeFallback;
+                      }
+                    }}
+                  />
+                </div>
+                <div>
+                  <span className="font-extrabold text-sm text-gray-900 block leading-tight">{selectedAuditBooking.vehicleName}</span>
+                  <span className="text-[11px] text-gray-500 capitalize">{selectedAuditBooking.vehicleType} · {selectedAuditBooking.vehicleBrand}</span>
+                </div>
+              </div>
+
               <div className="grid grid-cols-2 gap-3 text-xs bg-gray-50 p-3 rounded-xl border border-gray-200">
                 <div>
                   <span className="text-gray-400 block">Licence Number:</span>

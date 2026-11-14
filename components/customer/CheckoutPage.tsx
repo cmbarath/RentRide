@@ -19,7 +19,7 @@ import {
   Loader2,
   Lock,
 } from 'lucide-react';
-import { getVehicleImage } from '@/lib/vehicle-images';
+import { getVehicleImage, getSafeImageUrl } from '@/lib/vehicle-images';
 
 export const CheckoutPage: React.FC = () => {
   const {
@@ -619,11 +619,19 @@ export const CheckoutPage: React.FC = () => {
             <div className="lg:col-span-5 space-y-6">
               <div className="bg-white rounded-3xl p-6 border border-gray-200 shadow-sm space-y-5 sticky top-24">
                 <div className="flex gap-4 items-center pb-4 border-b border-gray-100">
-                  <div className="w-24 h-16 rounded-xl bg-gray-100 overflow-hidden border border-gray-200 shrink-0">
+                  <div className="w-24 h-16 rounded-xl bg-gradient-to-b from-gray-50 to-gray-100 overflow-hidden border border-gray-200 shrink-0">
                     <img
-                      src={vehicle.coverImage || getVehicleImage(vehicle.name, vehicle.type).coverImage}
+                      src={getSafeImageUrl(vehicle.coverImage || getVehicleImage(vehicle.name, vehicle.type).coverImage)}
                       alt={vehicle.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover object-center"
+                      onError={(e) => {
+                        const fallback = getVehicleImage(vehicle.name, vehicle.type).coverImage;
+                        const target = e.target as HTMLImageElement;
+                        const safeFallback = getSafeImageUrl(fallback);
+                        if (target.src !== safeFallback) {
+                          target.src = safeFallback;
+                        }
+                      }}
                     />
                   </div>
                   <div>

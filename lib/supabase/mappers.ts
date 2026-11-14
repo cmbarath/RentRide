@@ -2,11 +2,16 @@ import { Vehicle } from '@/types/vehicle';
 import { Booking, BookingStatus, PaymentStatus, LicenceVerificationStatus } from '@/types/booking';
 import { Customer } from '@/types/customer';
 import { Transaction } from '@/types/payment';
+import { getVehicleImagePath } from '@/lib/vehicle-images';
 
 /**
  * Maps a Supabase PostgreSQL row from public.vehicles to TypeScript Vehicle
  */
 export function mapVehicleFromDb(row: any): Vehicle {
+  const coverImage = (row.cover_image && !row.cover_image.endsWith('.svg'))
+    ? row.cover_image
+    : getVehicleImagePath(row.name || row.slug || row.model, row.type);
+
   return {
     id: row.id,
     slug: row.slug || row.id,
@@ -30,8 +35,8 @@ export function mapVehicleFromDb(row: any): Vehicle {
     securityDeposit: Number(row.security_deposit),
     rating: Number(row.rating || 5.0),
     reviewCount: Number(row.review_count || 0),
-    images: row.images || [row.cover_image],
-    coverImage: row.cover_image,
+    images: row.images && row.images.length > 0 && !row.images[0].endsWith('.svg') ? row.images : [coverImage],
+    coverImage,
     location: row.location_name || 'T. Nagar Hub, Chennai',
     pickupLocationId: row.location_id,
     description: row.description || '',
@@ -95,7 +100,9 @@ export function mapBookingFromDb(row: any): Booking {
     vehicleName: row.vehicle_name,
     vehicleBrand: row.vehicle_brand,
     vehicleType: row.vehicle_type,
-    vehicleImage: row.vehicle_image,
+    vehicleImage: (row.vehicle_image && !row.vehicle_image.endsWith('.svg'))
+      ? row.vehicle_image
+      : getVehicleImagePath(row.vehicle_name || row.vehicle_id, row.vehicle_type),
     customerName: row.customer_name,
     customerEmail: row.customer_email,
     customerPhone: row.customer_phone,

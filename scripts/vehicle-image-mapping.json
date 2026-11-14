@@ -1,0 +1,842 @@
+[
+  {
+    "id": "veh-bk-01",
+    "key": "hero-splendor-plus",
+    "vehicleName": "Hero Splendor Plus XTEC",
+    "type": "bike",
+    "category": "Family & Commuter",
+    "coverImage": "/images/Bike/hero-splendor-plus.avif",
+    "galleryImages": [
+      "/images/Bike/hero-splendor-plus.avif"
+    ],
+    "altText": "Hero Splendor Plus Family & Commuter Motorcycle",
+    "matchedFile": "hero-splendor-plus.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-bk-02",
+    "key": "hero-hf-deluxe",
+    "vehicleName": "Hero HF Deluxe Self-Start",
+    "type": "bike",
+    "category": "Family & Commuter",
+    "coverImage": "/images/Bike/hero-hf-deluxe.png",
+    "galleryImages": [
+      "/images/Bike/hero-hf-deluxe.png"
+    ],
+    "altText": "Hero HF Deluxe Family & Commuter Motorcycle",
+    "matchedFile": "hero-hf-deluxe.png",
+    "format": ".png",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-bk-03",
+    "key": "honda-shine-125",
+    "vehicleName": "Honda Shine 125 Drum OBD2",
+    "type": "bike",
+    "category": "Family & Commuter",
+    "coverImage": "/images/Bike/honda-shine-125.jpg",
+    "galleryImages": [
+      "/images/Bike/honda-shine-125.jpg"
+    ],
+    "altText": "Honda Shine 125 Family & Commuter Motorcycle",
+    "matchedFile": "honda-shine-125.jpg",
+    "format": ".jpg",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-bk-04",
+    "key": "honda-sp125",
+    "vehicleName": "Honda SP125 Sports Edition",
+    "type": "bike",
+    "category": "Family & Commuter",
+    "coverImage": "/images/Bike/honda-sp125.jpg",
+    "galleryImages": [
+      "/images/Bike/honda-sp125.jpg"
+    ],
+    "altText": "Honda SP125 Family & Commuter Motorcycle",
+    "matchedFile": "honda-sp125.jpg",
+    "format": ".jpg",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-bk-05",
+    "key": "honda-unicorn",
+    "vehicleName": "Honda Unicorn 160 BS6",
+    "type": "bike",
+    "category": "Family & Commuter",
+    "coverImage": "/images/Bike/honda-unicorn.jpg",
+    "galleryImages": [
+      "/images/Bike/honda-unicorn.jpg"
+    ],
+    "altText": "Honda Unicorn Family & Commuter Motorcycle",
+    "matchedFile": "honda-unicorn.jpg",
+    "format": ".jpg",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-bk-06",
+    "key": "bajaj-platina-110",
+    "vehicleName": "Bajaj Platina 110 ABS",
+    "type": "bike",
+    "category": "Family & Commuter",
+    "coverImage": "/images/Bike/bajaj-platina-110.avif",
+    "galleryImages": [
+      "/images/Bike/bajaj-platina-110.avif"
+    ],
+    "altText": "Bajaj Platina 110 Family & Commuter Motorcycle",
+    "matchedFile": "bajaj-platina-110.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-bk-07",
+    "key": "tvs-raider-125",
+    "vehicleName": "TVS Raider 125 SmartXonnect",
+    "type": "bike",
+    "category": "Family & Commuter",
+    "coverImage": "/images/Bike/tvs-raider-125.avif",
+    "galleryImages": [
+      "/images/Bike/tvs-raider-125.avif"
+    ],
+    "altText": "TVS Raider 125 Family & Commuter Motorcycle",
+    "matchedFile": "tvs-raider-125.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-bk-08",
+    "key": "bajaj-pulsar-125",
+    "vehicleName": "Bajaj Pulsar 125 Carbon",
+    "type": "bike",
+    "category": "Family & Commuter",
+    "coverImage": "/images/Bike/bajaj-pulsar-125.avif",
+    "galleryImages": [
+      "/images/Bike/bajaj-pulsar-125.avif"
+    ],
+    "altText": "Bajaj Pulsar 125 Family & Commuter Motorcycle",
+    "matchedFile": "bajaj-pulsar-125.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-bk-09",
+    "key": "bajaj-pulsar-n160",
+    "vehicleName": "Bajaj Pulsar N160 Dual ABS",
+    "type": "bike",
+    "category": "City & Street",
+    "coverImage": "/images/Bike/bajaj-pulsar-n160.avif",
+    "galleryImages": [
+      "/images/Bike/bajaj-pulsar-n160.avif"
+    ],
+    "altText": "Bajaj Pulsar N160 City & Street Motorcycle",
+    "matchedFile": "bajaj-pulsar-n160.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-bk-10",
+    "key": "tvs-apache-rtr-160-4v",
+    "vehicleName": "TVS Apache RTR 160 4V Special Edition",
+    "type": "bike",
+    "category": "City & Street",
+    "coverImage": "/images/Bike/tvs-apache-rtr-160-4v.avif",
+    "galleryImages": [
+      "/images/Bike/tvs-apache-rtr-160-4v.avif"
+    ],
+    "altText": "TVS Apache RTR 160 4V City & Street Motorcycle",
+    "matchedFile": "tvs-apache-rtr-160-4v.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-bk-11",
+    "key": "tvs-apache-rtr-200-4v",
+    "vehicleName": "TVS Apache RTR 200 4V Dual ABS",
+    "type": "bike",
+    "category": "City & Street",
+    "coverImage": "/images/Bike/tvs-apache-rtr-200-4v.avif",
+    "galleryImages": [
+      "/images/Bike/tvs-apache-rtr-200-4v.avif"
+    ],
+    "altText": "TVS Apache RTR 200 4V City & Street Motorcycle",
+    "matchedFile": "tvs-apache-rtr-200-4v.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-bk-12",
+    "key": "yamaha-fz-s-fi",
+    "vehicleName": "Yamaha FZ-S FI V4 Deluxe",
+    "type": "bike",
+    "category": "City & Street",
+    "coverImage": "/images/Bike/yamaha-fz-s-fi.avif",
+    "galleryImages": [
+      "/images/Bike/yamaha-fz-s-fi.avif"
+    ],
+    "altText": "Yamaha FZ-S FI City & Street Motorcycle",
+    "matchedFile": "yamaha-fz-s-fi.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-bk-13",
+    "key": "yamaha-mt-15-v2",
+    "vehicleName": "Yamaha MT-15 V2 Monster Energy",
+    "type": "bike",
+    "category": "City & Street",
+    "coverImage": "/images/Bike/yamaha-mt-15-v2.jpg",
+    "galleryImages": [
+      "/images/Bike/yamaha-mt-15-v2.jpg"
+    ],
+    "altText": "Yamaha MT-15 V2 City & Street Motorcycle",
+    "matchedFile": "yamaha-mt-15-v2.jpg",
+    "format": ".jpg",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-bk-14",
+    "key": "suzuki-gixxer-155",
+    "vehicleName": "Suzuki Gixxer 155 Ride Connect",
+    "type": "bike",
+    "category": "City & Street",
+    "coverImage": "/images/Bike/suzuki-gixxer-155.avif",
+    "galleryImages": [
+      "/images/Bike/suzuki-gixxer-155.avif"
+    ],
+    "altText": "Suzuki Gixxer 155 City & Street Motorcycle",
+    "matchedFile": "suzuki-gixxer-155.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-bk-15",
+    "key": "tvs-ronin",
+    "vehicleName": "TVS Ronin Special Edition TD",
+    "type": "bike",
+    "category": "City & Street",
+    "coverImage": "/images/Bike/tvs-ronin.jpg",
+    "galleryImages": [
+      "/images/Bike/tvs-ronin.jpg"
+    ],
+    "altText": "TVS Ronin City & Street Motorcycle",
+    "matchedFile": "tvs-ronin.jpg",
+    "format": ".jpg",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-bk-16",
+    "key": "ktm-duke-200",
+    "vehicleName": "KTM Duke 200 Gen 3",
+    "type": "bike",
+    "category": "City & Street",
+    "coverImage": "/images/Bike/ktm-duke-200.avif",
+    "galleryImages": [
+      "/images/Bike/ktm-duke-200.avif"
+    ],
+    "altText": "KTM Duke 200 City & Street Motorcycle",
+    "matchedFile": "ktm-duke-200.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-bk-17",
+    "key": "royal-enfield-hunter-350",
+    "vehicleName": "Royal Enfield Hunter 350 Rebel",
+    "type": "bike",
+    "category": "Touring & Highway",
+    "coverImage": "/images/Bike/royal-enfield-hunter-350.avif",
+    "galleryImages": [
+      "/images/Bike/royal-enfield-hunter-350.avif"
+    ],
+    "altText": "Royal Enfield Hunter 350 Touring & Highway Motorcycle",
+    "matchedFile": "royal-enfield-hunter-350.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-bk-18",
+    "key": "royal-enfield-classic-350",
+    "vehicleName": "Royal Enfield Classic 350 Reborn",
+    "type": "bike",
+    "category": "Touring & Highway",
+    "coverImage": "/images/Bike/royal-enfield-classic-350.avif",
+    "galleryImages": [
+      "/images/Bike/royal-enfield-classic-350.avif"
+    ],
+    "altText": "Royal Enfield Classic 350 Touring & Highway Motorcycle",
+    "matchedFile": "royal-enfield-classic-350.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-bk-19",
+    "key": "royal-enfield-meteor-350",
+    "vehicleName": "Royal Enfield Meteor 350 Supernova",
+    "type": "bike",
+    "category": "Touring & Highway",
+    "coverImage": "/images/Bike/royal-enfield-meteor-350.avif",
+    "galleryImages": [
+      "/images/Bike/royal-enfield-meteor-350.avif"
+    ],
+    "altText": "Royal Enfield Meteor 350 Touring & Highway Motorcycle",
+    "matchedFile": "royal-enfield-meteor-350.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-bk-20",
+    "key": "royal-enfield-bullet-350",
+    "vehicleName": "Royal Enfield Bullet 350 Military",
+    "type": "bike",
+    "category": "Touring & Highway",
+    "coverImage": "/images/Bike/royal-enfield-bullet-350.avif",
+    "galleryImages": [
+      "/images/Bike/royal-enfield-bullet-350.avif"
+    ],
+    "altText": "Royal Enfield Bullet 350 Touring & Highway Motorcycle",
+    "matchedFile": "royal-enfield-bullet-350.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-bk-21",
+    "key": "royal-enfield-himalayan-450",
+    "vehicleName": "Royal Enfield Himalayan 450 Sherpa",
+    "type": "bike",
+    "category": "Touring & Highway",
+    "coverImage": "/images/Bike/royal-enfield-himalayan-450.avif",
+    "galleryImages": [
+      "/images/Bike/royal-enfield-himalayan-450.avif"
+    ],
+    "altText": "Royal Enfield Himalayan 450 Touring & Highway Motorcycle",
+    "matchedFile": "royal-enfield-himalayan-450.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-bk-22",
+    "key": "royal-enfield-guerrilla-450",
+    "vehicleName": "Royal Enfield Guerrilla 450 Flash",
+    "type": "bike",
+    "category": "Touring & Highway",
+    "coverImage": "/images/Bike/royal-enfield-guerrilla-450.avif",
+    "galleryImages": [
+      "/images/Bike/royal-enfield-guerrilla-450.avif"
+    ],
+    "altText": "Royal Enfield Guerrilla 450 Touring & Highway Motorcycle",
+    "matchedFile": "royal-enfield-guerrilla-450.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-bk-23",
+    "key": "honda-hness-cb350",
+    "vehicleName": "Honda H'ness CB350 DLX Pro",
+    "type": "bike",
+    "category": "Touring & Highway",
+    "coverImage": "/images/Bike/honda-hness-cb350.avif",
+    "galleryImages": [
+      "/images/Bike/honda-hness-cb350.avif"
+    ],
+    "altText": "Honda H'ness CB350 Touring & Highway Motorcycle",
+    "matchedFile": "honda-hness-cb350.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-bk-24",
+    "key": "honda-cb350rs",
+    "vehicleName": "Honda CB350RS Monotone",
+    "type": "bike",
+    "category": "Touring & Highway",
+    "coverImage": "/images/Bike/honda-cb350-rs.avif",
+    "galleryImages": [
+      "/images/Bike/honda-cb350-rs.avif"
+    ],
+    "altText": "Honda CB350RS Touring & Highway Motorcycle",
+    "matchedFile": "honda-cb350-rs.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-bk-25",
+    "key": "suzuki-v-strom-sx",
+    "vehicleName": "Suzuki V-Strom SX 250",
+    "type": "bike",
+    "category": "Touring & Highway",
+    "coverImage": "/images/Bike/suzuki-v-strom-sx.avif",
+    "galleryImages": [
+      "/images/Bike/suzuki-v-strom-sx.avif"
+    ],
+    "altText": "Suzuki V-Strom SX Touring & Highway Motorcycle",
+    "matchedFile": "suzuki-v-strom-sx.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-bk-26",
+    "key": "bajaj-dominar-400",
+    "vehicleName": "Bajaj Dominar 400 Factory Tourer",
+    "type": "bike",
+    "category": "Touring & Highway",
+    "coverImage": "/images/Bike/bajaj-dominar-400.avif",
+    "galleryImages": [
+      "/images/Bike/bajaj-dominar-400.avif"
+    ],
+    "altText": "Bajaj Dominar 400 Touring & Highway Motorcycle",
+    "matchedFile": "bajaj-dominar-400.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-bk-27",
+    "key": "honda-activa-6g",
+    "vehicleName": "Honda Activa 6G H-Smart",
+    "type": "bike",
+    "category": "Scooter",
+    "coverImage": "/images/Bike/honda-activa-6g.avif",
+    "galleryImages": [
+      "/images/Bike/honda-activa-6g.avif"
+    ],
+    "altText": "Honda Activa 6G Scooter Motorcycle",
+    "matchedFile": "honda-activa-6g.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-bk-28",
+    "key": "tvs-jupiter-125",
+    "vehicleName": "TVS Jupiter 125 SmartXonnect",
+    "type": "bike",
+    "category": "Scooter",
+    "coverImage": "/images/Bike/tvs-jupiter-125.avif",
+    "galleryImages": [
+      "/images/Bike/tvs-jupiter-125.avif"
+    ],
+    "altText": "TVS Jupiter 125 Scooter Motorcycle",
+    "matchedFile": "tvs-jupiter-125.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-bk-29",
+    "key": "suzuki-access-125",
+    "vehicleName": "Suzuki Access 125 Ride Connect",
+    "type": "bike",
+    "category": "Scooter",
+    "coverImage": "/images/Bike/suzuki-access-125.avif",
+    "galleryImages": [
+      "/images/Bike/suzuki-access-125.avif"
+    ],
+    "altText": "Suzuki Access 125 Scooter Motorcycle",
+    "matchedFile": "suzuki-access-125.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-bk-30",
+    "key": "ather-450x",
+    "vehicleName": "Ather 450X Gen 3 Pro",
+    "type": "bike",
+    "category": "Scooter",
+    "coverImage": "/images/Bike/ather-450x.avif",
+    "galleryImages": [
+      "/images/Bike/ather-450x.avif"
+    ],
+    "altText": "Ather 450X Scooter Motorcycle",
+    "matchedFile": "ather-450x.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-cr-01",
+    "key": "maruti-suzuki-alto-k10",
+    "vehicleName": "Maruti Suzuki Alto K10 VXi",
+    "type": "car",
+    "category": "Hatchback",
+    "coverImage": "/images/Car/maruti-suzuki-alto-k10.avif",
+    "galleryImages": [
+      "/images/Car/maruti-suzuki-alto-k10.avif"
+    ],
+    "altText": "Maruti Suzuki Alto K10 Hatchback Car",
+    "matchedFile": "maruti-suzuki-alto-k10.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-cr-02",
+    "key": "maruti-suzuki-celerio",
+    "vehicleName": "Maruti Suzuki Celerio ZXi AMT",
+    "type": "car",
+    "category": "Hatchback",
+    "coverImage": "/images/Car/maruti-suzuki-celerio.avif",
+    "galleryImages": [
+      "/images/Car/maruti-suzuki-celerio.avif"
+    ],
+    "altText": "Maruti Suzuki Celerio Hatchback Car",
+    "matchedFile": "maruti-suzuki-celerio.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-cr-03",
+    "key": "maruti-suzuki-swift",
+    "vehicleName": "Maruti Suzuki Swift ZXi+ 2024",
+    "type": "car",
+    "category": "Hatchback",
+    "coverImage": "/images/Car/maruti-suzuki-swift.avif",
+    "galleryImages": [
+      "/images/Car/maruti-suzuki-swift.avif"
+    ],
+    "altText": "Maruti Suzuki Swift Hatchback Car",
+    "matchedFile": "maruti-suzuki-swift.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-cr-04",
+    "key": "maruti-suzuki-baleno",
+    "vehicleName": "Maruti Suzuki Baleno Alpha AMT",
+    "type": "car",
+    "category": "Hatchback",
+    "coverImage": "/images/Car/maruti-suzuki-baleno.avif",
+    "galleryImages": [
+      "/images/Car/maruti-suzuki-baleno.avif"
+    ],
+    "altText": "Maruti Suzuki Baleno Hatchback Car",
+    "matchedFile": "maruti-suzuki-baleno.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-cr-05",
+    "key": "hyundai-grand-i10-nios",
+    "vehicleName": "Hyundai Grand i10 Nios Asta",
+    "type": "car",
+    "category": "Hatchback",
+    "coverImage": "/images/Car/hyundai-grand-i10-nios.avif",
+    "galleryImages": [
+      "/images/Car/hyundai-grand-i10-nios.avif"
+    ],
+    "altText": "Hyundai Grand i10 Nios Hatchback Car",
+    "matchedFile": "hyundai-grand-i10-nios.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-cr-06",
+    "key": "hyundai-i20",
+    "vehicleName": "Hyundai i20 Asta (O) IVT",
+    "type": "car",
+    "category": "Hatchback",
+    "coverImage": "/images/Car/hyundai-i20.avif",
+    "galleryImages": [
+      "/images/Car/hyundai-i20.avif"
+    ],
+    "altText": "Hyundai i20 Hatchback Car",
+    "matchedFile": "hyundai-i20.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-cr-07",
+    "key": "tata-tiago",
+    "vehicleName": "Tata Tiago XZ Plus Dual Tone",
+    "type": "car",
+    "category": "Hatchback",
+    "coverImage": "/images/Car/tata-tiago.jpg",
+    "galleryImages": [
+      "/images/Car/tata-tiago.jpg"
+    ],
+    "altText": "Tata Tiago Hatchback Car",
+    "matchedFile": "tata-tiago.jpg",
+    "format": ".jpg",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-cr-08",
+    "key": "tata-altroz",
+    "vehicleName": "Tata Altroz XZ+ Dark Edition",
+    "type": "car",
+    "category": "Hatchback",
+    "coverImage": "/images/Car/tata-altroz.avif",
+    "galleryImages": [
+      "/images/Car/tata-altroz.avif"
+    ],
+    "altText": "Tata Altroz Hatchback Car",
+    "matchedFile": "tata-altroz.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-cr-09",
+    "key": "toyota-glanza",
+    "vehicleName": "Toyota Glanza V AMT",
+    "type": "car",
+    "category": "Hatchback",
+    "coverImage": "/images/Car/toyota-glanza.avif",
+    "galleryImages": [
+      "/images/Car/toyota-glanza.avif"
+    ],
+    "altText": "Toyota Glanza Hatchback Car",
+    "matchedFile": "toyota-glanza.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-cr-10",
+    "key": "maruti-suzuki-dzire",
+    "vehicleName": "Maruti Suzuki Dzire 2024 ZXi+ AGS",
+    "type": "car",
+    "category": "Sedan",
+    "coverImage": "/images/Car/maruti-suzuki-dzire.avif",
+    "galleryImages": [
+      "/images/Car/maruti-suzuki-dzire.avif"
+    ],
+    "altText": "Maruti Suzuki Dzire Sedan Car",
+    "matchedFile": "maruti-suzuki-dzire.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-cr-11",
+    "key": "honda-amaze",
+    "vehicleName": "Honda Amaze VX CVT Automatic",
+    "type": "car",
+    "category": "Sedan",
+    "coverImage": "/images/Car/honda-amaze.avif",
+    "galleryImages": [
+      "/images/Car/honda-amaze.avif"
+    ],
+    "altText": "Honda Amaze Sedan Car",
+    "matchedFile": "honda-amaze.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-cr-12",
+    "key": "honda-city",
+    "vehicleName": "Honda City 5th Gen ZX CVT ADAS",
+    "type": "car",
+    "category": "Sedan",
+    "coverImage": "/images/Car/honda-city.avif",
+    "galleryImages": [
+      "/images/Car/honda-city.avif"
+    ],
+    "altText": "Honda City Sedan Car",
+    "matchedFile": "honda-city.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-cr-13",
+    "key": "hyundai-verna",
+    "vehicleName": "Hyundai Verna SX (O) 1.5 Turbo DCT",
+    "type": "car",
+    "category": "Sedan",
+    "coverImage": "/images/Car/hyundai-verna.avif",
+    "galleryImages": [
+      "/images/Car/hyundai-verna.avif"
+    ],
+    "altText": "Hyundai Verna Sedan Car",
+    "matchedFile": "hyundai-verna.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-cr-14",
+    "key": "volkswagen-virtus",
+    "vehicleName": "Volkswagen Virtus GT Plus 1.5 TSI DSG",
+    "type": "car",
+    "category": "Sedan",
+    "coverImage": "/images/Car/volkswagen-virtus.avif",
+    "galleryImages": [
+      "/images/Car/volkswagen-virtus.avif"
+    ],
+    "altText": "Volkswagen Virtus Sedan Car",
+    "matchedFile": "volkswagen-virtus.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-cr-15",
+    "key": "skoda-slavia",
+    "vehicleName": "Skoda Slavia Style 1.5 TSI DSG",
+    "type": "car",
+    "category": "Sedan",
+    "coverImage": "/images/Car/skoda-slavia.avif",
+    "galleryImages": [
+      "/images/Car/skoda-slavia.avif"
+    ],
+    "altText": "Skoda Slavia Sedan Car",
+    "matchedFile": "skoda-slavia.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-cr-16",
+    "key": "maruti-suzuki-brezza",
+    "vehicleName": "Maruti Suzuki Brezza ZXi+ AT",
+    "type": "car",
+    "category": "SUV",
+    "coverImage": "/images/Car/maruti-suzuki-brezza.avif",
+    "galleryImages": [
+      "/images/Car/maruti-suzuki-brezza.avif"
+    ],
+    "altText": "Maruti Suzuki Brezza SUV Car",
+    "matchedFile": "maruti-suzuki-brezza.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-cr-17",
+    "key": "tata-nexon",
+    "vehicleName": "Tata Nexon Fearless+ S DCA",
+    "type": "car",
+    "category": "SUV",
+    "coverImage": "/images/Car/tata-nexon.jpeg",
+    "galleryImages": [
+      "/images/Car/tata-nexon.jpeg"
+    ],
+    "altText": "Tata Nexon SUV Car",
+    "matchedFile": "tata-nexon.jpeg",
+    "format": ".jpeg",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-cr-18",
+    "key": "hyundai-venue",
+    "vehicleName": "Hyundai Venue SX (O) Turbo DCT",
+    "type": "car",
+    "category": "SUV",
+    "coverImage": "/images/Car/hyundai-venue.avif",
+    "galleryImages": [
+      "/images/Car/hyundai-venue.avif"
+    ],
+    "altText": "Hyundai Venue SUV Car",
+    "matchedFile": "hyundai-venue.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-cr-19",
+    "key": "kia-sonet",
+    "vehicleName": "Kia Sonet X-Line 1.5 Diesel AT",
+    "type": "car",
+    "category": "SUV",
+    "coverImage": "/images/Car/kia-sonet.avif",
+    "galleryImages": [
+      "/images/Car/kia-sonet.avif"
+    ],
+    "altText": "Kia Sonet SUV Car",
+    "matchedFile": "kia-sonet.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-cr-20",
+    "key": "hyundai-creta",
+    "vehicleName": "Hyundai Creta SX (O) 1.5 Turbo DCT",
+    "type": "car",
+    "category": "SUV",
+    "coverImage": "/images/Car/hyundai-creta.avif",
+    "galleryImages": [
+      "/images/Car/hyundai-creta.avif"
+    ],
+    "altText": "Hyundai Creta SUV Car",
+    "matchedFile": "hyundai-creta.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-cr-21",
+    "key": "kia-seltos",
+    "vehicleName": "Kia Seltos GTX+ 1.5 Diesel AT",
+    "type": "car",
+    "category": "SUV",
+    "coverImage": "/images/Car/kia-seltos.avif",
+    "galleryImages": [
+      "/images/Car/kia-seltos.avif"
+    ],
+    "altText": "Kia Seltos SUV Car",
+    "matchedFile": "kia-seltos.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-cr-22",
+    "key": "maruti-suzuki-grand-vitara",
+    "vehicleName": "Maruti Suzuki Grand Vitara Alpha+ Hybrid",
+    "type": "car",
+    "category": "SUV",
+    "coverImage": "/images/Car/maruti-suzuki-grand-vitara.avif",
+    "galleryImages": [
+      "/images/Car/maruti-suzuki-grand-vitara.avif"
+    ],
+    "altText": "Maruti Suzuki Grand Vitara SUV Car",
+    "matchedFile": "maruti-suzuki-grand-vitara.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-cr-23",
+    "key": "mahindra-scorpio-n",
+    "vehicleName": "Mahindra Scorpio-N Z8L 4x4 7-Seater",
+    "type": "car",
+    "category": "SUV",
+    "coverImage": "/images/Car/mahindra scorpio-n.avif",
+    "galleryImages": [
+      "/images/Car/mahindra scorpio-n.avif"
+    ],
+    "altText": "Mahindra Scorpio-N SUV Car",
+    "matchedFile": "mahindra scorpio-n.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-cr-24",
+    "key": "maruti-suzuki-ertiga",
+    "vehicleName": "Maruti Suzuki Ertiga ZXi+ AT 7-Seater",
+    "type": "car",
+    "category": "Family MPV",
+    "coverImage": "/images/Car/maruti-suzuki-ertiga.avif",
+    "galleryImages": [
+      "/images/Car/maruti-suzuki-ertiga.avif"
+    ],
+    "altText": "Maruti Suzuki Ertiga Family MPV Car",
+    "matchedFile": "maruti-suzuki-ertiga.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-cr-25",
+    "key": "toyota-innova-crysta",
+    "vehicleName": "Toyota Innova Crysta 2.4 VX 7-Seater",
+    "type": "car",
+    "category": "Family MPV",
+    "coverImage": "/images/Car/toyota-innova-crysta.avif",
+    "galleryImages": [
+      "/images/Car/toyota-innova-crysta.avif"
+    ],
+    "altText": "Toyota Innova Crysta Family MPV Car",
+    "matchedFile": "toyota-innova-crysta.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  },
+  {
+    "id": "veh-cr-26",
+    "key": "mercedes-benz-e-class",
+    "vehicleName": "Mercedes-Benz E-Class Exclusive",
+    "type": "car",
+    "category": "Sedan",
+    "coverImage": "/images/Car/mercedes-benz-e-class.avif",
+    "galleryImages": [
+      "/images/Car/mercedes-benz-e-class.avif"
+    ],
+    "altText": "Mercedes-Benz E-Class Sedan Car",
+    "matchedFile": "mercedes-benz-e-class.avif",
+    "format": ".avif",
+    "status": "Exact Match"
+  }
+]

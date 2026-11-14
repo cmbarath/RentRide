@@ -24,6 +24,7 @@ import {
   LogOut,
   Save,
 } from 'lucide-react';
+import { getVehicleImage, getSafeImageUrl } from '@/lib/vehicle-images';
 
 export const CustomerDashboard: React.FC = () => {
   const {
@@ -464,8 +465,20 @@ export const CustomerDashboard: React.FC = () => {
                       className="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4"
                     >
                       <div className="flex items-center gap-4">
-                        <div className="w-20 h-16 rounded-xl overflow-hidden bg-gray-100 shrink-0">
-                          <img src={b.vehicleImage} alt={b.vehicleName} className="w-full h-full object-cover" />
+                        <div className="w-20 h-16 rounded-xl overflow-hidden bg-gray-100 border border-gray-200 shrink-0">
+                          <img
+                            src={getSafeImageUrl(b.vehicleImage || getVehicleImage(b.vehicleName, b.vehicleType).coverImage)}
+                            alt={b.vehicleName}
+                            className="w-full h-full object-cover object-center"
+                            onError={(e) => {
+                              const fallback = getVehicleImage(b.vehicleName, b.vehicleType).coverImage;
+                              const target = e.target as HTMLImageElement;
+                              const safeFallback = getSafeImageUrl(fallback);
+                              if (target.src !== safeFallback) {
+                                target.src = safeFallback;
+                              }
+                            }}
+                          />
                         </div>
                         <div className="space-y-1">
                           <div className="flex items-center gap-2 flex-wrap">
@@ -541,8 +554,20 @@ export const CustomerDashboard: React.FC = () => {
                     className="bg-white p-5 rounded-3xl border border-gray-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-5"
                   >
                     <div className="flex items-start gap-4">
-                      <div className="w-24 h-18 rounded-2xl overflow-hidden bg-gray-100 shrink-0">
-                        <img src={b.vehicleImage} alt={b.vehicleName} className="w-full h-full object-cover" />
+                      <div className="w-24 h-18 rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 shrink-0">
+                        <img
+                          src={getSafeImageUrl(b.vehicleImage || getVehicleImage(b.vehicleName, b.vehicleType).coverImage)}
+                          alt={b.vehicleName}
+                          className="w-full h-full object-cover object-center"
+                          onError={(e) => {
+                            const fallback = getVehicleImage(b.vehicleName, b.vehicleType).coverImage;
+                            const target = e.target as HTMLImageElement;
+                            const safeFallback = getSafeImageUrl(fallback);
+                            if (target.src !== safeFallback) {
+                              target.src = safeFallback;
+                            }
+                          }}
+                        />
                       </div>
                       <div className="space-y-1">
                         <div className="flex items-center gap-2 flex-wrap">

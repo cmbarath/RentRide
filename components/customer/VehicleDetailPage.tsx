@@ -21,7 +21,7 @@ import {
   Loader2,
   MessageSquare,
 } from 'lucide-react';
-import { getVehicleImage } from '@/lib/vehicle-images';
+import { getVehicleImage, getSafeImageUrl } from '@/lib/vehicle-images';
 
 export const VehicleDetailPage: React.FC = () => {
   const {
@@ -213,14 +213,18 @@ export const VehicleDetailPage: React.FC = () => {
           <div className="lg:col-span-8 space-y-6">
             {/* Main Stage Gallery */}
             <div className="bg-white rounded-3xl p-4 border border-gray-200 shadow-sm overflow-hidden">
-              <div className="relative aspect-[16/10] bg-gray-100 rounded-2xl overflow-hidden mb-3">
+              <div className="relative aspect-[16/10] bg-gradient-to-b from-gray-50 via-gray-100 to-gray-200/50 rounded-2xl overflow-hidden mb-3">
                 <img
-                  src={gallery[activeImageIndex] || gallery[0]}
+                  src={getSafeImageUrl(gallery[activeImageIndex] || gallery[0])}
                   alt={vehicle.name}
-                  className="w-full h-full object-cover transition-all duration-300"
+                  className="w-full h-full object-cover object-center transition-all duration-300"
                   onError={(e) => {
                     const fallback = getVehicleImage(vehicle.name, vehicle.type).coverImage;
-                    (e.target as HTMLImageElement).src = fallback;
+                    const target = e.target as HTMLImageElement;
+                    const safeFallback = getSafeImageUrl(fallback);
+                    if (target.src !== safeFallback) {
+                      target.src = safeFallback;
+                    }
                   }}
                 />
 
@@ -247,13 +251,13 @@ export const VehicleDetailPage: React.FC = () => {
                       key={idx}
                       type="button"
                       onClick={() => setActiveImageIndex(idx)}
-                      className={`relative w-20 h-14 rounded-xl overflow-hidden border-2 shrink-0 transition-all cursor-pointer ${
+                      className={`relative w-20 h-14 rounded-xl overflow-hidden border-2 shrink-0 transition-all cursor-pointer bg-gray-100 ${
                         activeImageIndex === idx
-                          ? 'border-[#111827] scale-105'
+                          ? 'border-[#111827] scale-105 shadow-sm'
                           : 'border-gray-200 opacity-70 hover:opacity-100'
                       }`}
                     >
-                      <img src={img} alt="Thumbnail" className="w-full h-full object-cover" />
+                      <img src={getSafeImageUrl(img)} alt="Thumbnail" className="w-full h-full object-cover object-center" />
                     </button>
                   ))}
                 </div>

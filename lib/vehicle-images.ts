@@ -1,7 +1,8 @@
 /**
  * RENTRIDE VEHICLE IMAGE MAPPING ENGINE
- * Central mapping system ensuring 100% accurate vehicle model-to-image association.
- * Eliminates mismatches (e.g. Hunter 350 vs Meteor 350, Creta vs Seltos, Bike vs Scooter).
+ * Phase 8.2: 100% Authentic Vehicle Image Association
+ * Replaces generic SVG placeholders with actual downloaded vehicle photography
+ * from public/images/Bike and public/images/Car.
  */
 
 export interface VehicleImageInfo {
@@ -12,314 +13,304 @@ export interface VehicleImageInfo {
 
 // Master model-to-image registry
 export const VEHICLE_IMAGE_REGISTRY: Record<string, VehicleImageInfo> = {
-  // ==================== BIKES: CATEGORY 1: FAMILY & COMMUTER BIKES ====================
+  // =========================================================================
+  // BIKES (30 Models) - Source: /images/Bike/
+  // =========================================================================
   'hero-splendor-plus': {
-    coverImage: '/images/vehicles/bikes/hero-splendor-plus.svg',
-    galleryImages: ['/images/vehicles/bikes/hero-splendor-plus.svg'],
-    altText: 'Hero Splendor Plus 100cc Commuter Motorcycle',
+    coverImage: '/images/Bike/hero-splendor-plus.avif',
+    galleryImages: ['/images/Bike/hero-splendor-plus.avif'],
+    altText: 'Hero Splendor Plus Family & Commuter Motorcycle',
   },
   'hero-hf-deluxe': {
-    coverImage: '/images/vehicles/bikes/hero-hf-deluxe.svg',
-    galleryImages: ['/images/vehicles/bikes/hero-hf-deluxe.svg'],
-    altText: 'Hero HF Deluxe Mileage Commuter Bike',
+    coverImage: '/images/Bike/hero-hf-deluxe.png',
+    galleryImages: ['/images/Bike/hero-hf-deluxe.png'],
+    altText: 'Hero HF Deluxe Family & Commuter Motorcycle',
   },
   'honda-shine-125': {
-    coverImage: '/images/vehicles/bikes/honda-shine-125.svg',
-    galleryImages: ['/images/vehicles/bikes/honda-shine-125.svg'],
-    altText: 'Honda Shine 125cc Reliable Family Motorcycle',
+    coverImage: '/images/Bike/honda-shine-125.jpg',
+    galleryImages: ['/images/Bike/honda-shine-125.jpg'],
+    altText: 'Honda Shine 125 Family & Commuter Motorcycle',
   },
   'honda-sp125': {
-    coverImage: '/images/vehicles/bikes/honda-sp125.svg',
-    galleryImages: ['/images/vehicles/bikes/honda-sp125.svg'],
-    altText: 'Honda SP125 Digital Commuter Bike',
+    coverImage: '/images/Bike/honda-sp125.jpg',
+    galleryImages: ['/images/Bike/honda-sp125.jpg'],
+    altText: 'Honda SP125 Family & Commuter Motorcycle',
   },
   'honda-unicorn': {
-    coverImage: '/images/vehicles/bikes/honda-unicorn.svg',
-    galleryImages: ['/images/vehicles/bikes/honda-unicorn.svg'],
-    altText: 'Honda Unicorn 160cc Smooth Family Commuter',
+    coverImage: '/images/Bike/honda-unicorn.jpg',
+    galleryImages: ['/images/Bike/honda-unicorn.jpg'],
+    altText: 'Honda Unicorn Family & Commuter Motorcycle',
   },
   'bajaj-platina-110': {
-    coverImage: '/images/vehicles/bikes/bajaj-platina-110.svg',
-    galleryImages: ['/images/vehicles/bikes/bajaj-platina-110.svg'],
-    altText: 'Bajaj Platina 110 ABS Comfort Commuter',
+    coverImage: '/images/Bike/bajaj-platina-110.avif',
+    galleryImages: ['/images/Bike/bajaj-platina-110.avif'],
+    altText: 'Bajaj Platina 110 Family & Commuter Motorcycle',
   },
   'tvs-raider-125': {
-    coverImage: '/images/vehicles/bikes/tvs-raider-125.svg',
-    galleryImages: ['/images/vehicles/bikes/tvs-raider-125.svg'],
-    altText: 'TVS Raider 125 Sporty Commuter Bike',
+    coverImage: '/images/Bike/tvs-raider-125.avif',
+    galleryImages: ['/images/Bike/tvs-raider-125.avif'],
+    altText: 'TVS Raider 125 Family & Commuter Motorcycle',
   },
   'bajaj-pulsar-125': {
-    coverImage: '/images/vehicles/bikes/bajaj-pulsar-125.svg',
-    galleryImages: ['/images/vehicles/bikes/bajaj-pulsar-125.svg'],
-    altText: 'Bajaj Pulsar 125 Neon Commuter Bike',
+    coverImage: '/images/Bike/bajaj-pulsar-125.avif',
+    galleryImages: ['/images/Bike/bajaj-pulsar-125.avif'],
+    altText: 'Bajaj Pulsar 125 Family & Commuter Motorcycle',
   },
-
-  // ==================== BIKES: CATEGORY 2: CITY & STREET BIKES ====================
   'bajaj-pulsar-n160': {
-    coverImage: '/images/vehicles/bikes/bajaj-pulsar-n160.svg',
-    galleryImages: ['/images/vehicles/bikes/bajaj-pulsar-n160.svg'],
-    altText: 'Bajaj Pulsar N160 Dual-Channel ABS Street Fighter',
+    coverImage: '/images/Bike/bajaj-pulsar-n160.avif',
+    galleryImages: ['/images/Bike/bajaj-pulsar-n160.avif'],
+    altText: 'Bajaj Pulsar N160 City & Street Motorcycle',
   },
   'tvs-apache-rtr-160-4v': {
-    coverImage: '/images/vehicles/bikes/tvs-apache-rtr-160-4v.svg',
-    galleryImages: ['/images/vehicles/bikes/tvs-apache-rtr-160-4v.svg'],
-    altText: 'TVS Apache RTR 160 4V Race Edition Street Bike',
+    coverImage: '/images/Bike/tvs-apache-rtr-160-4v.avif',
+    galleryImages: ['/images/Bike/tvs-apache-rtr-160-4v.avif'],
+    altText: 'TVS Apache RTR 160 4V City & Street Motorcycle',
   },
   'tvs-apache-rtr-200-4v': {
-    coverImage: '/images/vehicles/bikes/tvs-apache-rtr-200-4v.svg',
-    galleryImages: ['/images/vehicles/bikes/tvs-apache-rtr-200-4v.svg'],
-    altText: 'TVS Apache RTR 200 4V with Riding Modes',
+    coverImage: '/images/Bike/tvs-apache-rtr-200-4v.avif',
+    galleryImages: ['/images/Bike/tvs-apache-rtr-200-4v.avif'],
+    altText: 'TVS Apache RTR 200 4V City & Street Motorcycle',
   },
   'yamaha-fz-s-fi': {
-    coverImage: '/images/vehicles/bikes/yamaha-fz-s-fi.svg',
-    galleryImages: ['/images/vehicles/bikes/yamaha-fz-s-fi.svg'],
-    altText: 'Yamaha FZ-S FI V4 Deluxe Street Motorcycle',
+    coverImage: '/images/Bike/yamaha-fz-s-fi.avif',
+    galleryImages: ['/images/Bike/yamaha-fz-s-fi.avif'],
+    altText: 'Yamaha FZ-S FI City & Street Motorcycle',
   },
   'yamaha-mt-15-v2': {
-    coverImage: '/images/vehicles/bikes/yamaha-mt-15-v2.svg',
-    galleryImages: ['/images/vehicles/bikes/yamaha-mt-15-v2.svg'],
-    altText: 'Yamaha MT-15 V2 Hyper Naked Street Fighter',
+    coverImage: '/images/Bike/yamaha-mt-15-v2.jpg',
+    galleryImages: ['/images/Bike/yamaha-mt-15-v2.jpg'],
+    altText: 'Yamaha MT-15 V2 City & Street Motorcycle',
   },
   'suzuki-gixxer-155': {
-    coverImage: '/images/vehicles/bikes/suzuki-gixxer-155.svg',
-    galleryImages: ['/images/vehicles/bikes/suzuki-gixxer-155.svg'],
-    altText: 'Suzuki Gixxer 155 Street Sport Motorcycle',
+    coverImage: '/images/Bike/suzuki-gixxer-155.avif',
+    galleryImages: ['/images/Bike/suzuki-gixxer-155.avif'],
+    altText: 'Suzuki Gixxer 155 City & Street Motorcycle',
   },
   'tvs-ronin': {
-    coverImage: '/images/vehicles/bikes/tvs-ronin.svg',
-    galleryImages: ['/images/vehicles/bikes/tvs-ronin.svg'],
-    altText: 'TVS Ronin 225cc Neo-Retro Urban Scrambler',
+    coverImage: '/images/Bike/tvs-ronin.jpg',
+    galleryImages: ['/images/Bike/tvs-ronin.jpg'],
+    altText: 'TVS Ronin City & Street Motorcycle',
   },
   'ktm-duke-200': {
-    coverImage: '/images/vehicles/bikes/ktm-duke-200.svg',
-    galleryImages: ['/images/vehicles/bikes/ktm-duke-200.svg'],
-    altText: 'KTM Duke 200 Sharp Urban Naked Bike',
+    coverImage: '/images/Bike/ktm-duke-200.avif',
+    galleryImages: ['/images/Bike/ktm-duke-200.avif'],
+    altText: 'KTM Duke 200 City & Street Motorcycle',
   },
-
-  // ==================== BIKES: CATEGORY 3: TOURING & HIGHWAY BIKES ====================
   'royal-enfield-hunter-350': {
-    coverImage: '/images/vehicles/bikes/royal-enfield-hunter-350.jpg',
-    galleryImages: [
-      '/images/vehicles/bikes/royal-enfield-hunter-350.jpg',
-      '/images/vehicles/bikes/royal-enfield-hunter-350.svg',
-    ],
-    altText: 'Royal Enfield Hunter 350 Rebel Dapper Urban Scrambler',
+    coverImage: '/images/Bike/royal-enfield-hunter-350.avif',
+    galleryImages: ['/images/Bike/royal-enfield-hunter-350.avif'],
+    altText: 'Royal Enfield Hunter 350 Touring & Highway Motorcycle',
   },
   'royal-enfield-classic-350': {
-    coverImage: '/images/vehicles/bikes/royal-enfield-classic-350.svg',
-    galleryImages: ['/images/vehicles/bikes/royal-enfield-classic-350.svg'],
-    altText: 'Royal Enfield Classic 350 Reborn Highway Cruiser',
+    coverImage: '/images/Bike/royal-enfield-classic-350.avif',
+    galleryImages: ['/images/Bike/royal-enfield-classic-350.avif'],
+    altText: 'Royal Enfield Classic 350 Touring & Highway Motorcycle',
   },
   'royal-enfield-meteor-350': {
-    coverImage: '/images/vehicles/bikes/royal-enfield-meteor-350.svg',
-    galleryImages: ['/images/vehicles/bikes/royal-enfield-meteor-350.svg'],
-    altText: 'Royal Enfield Meteor 350 Supernova Highway Cruiser',
+    coverImage: '/images/Bike/royal-enfield-meteor-350.avif',
+    galleryImages: ['/images/Bike/royal-enfield-meteor-350.avif'],
+    altText: 'Royal Enfield Meteor 350 Touring & Highway Motorcycle',
   },
   'royal-enfield-bullet-350': {
-    coverImage: '/images/vehicles/bikes/royal-enfield-bullet-350.svg',
-    galleryImages: ['/images/vehicles/bikes/royal-enfield-bullet-350.svg'],
-    altText: 'Royal Enfield Bullet 350 Legendary Thumper',
+    coverImage: '/images/Bike/royal-enfield-bullet-350.avif',
+    galleryImages: ['/images/Bike/royal-enfield-bullet-350.avif'],
+    altText: 'Royal Enfield Bullet 350 Touring & Highway Motorcycle',
   },
   'royal-enfield-himalayan-450': {
-    coverImage: '/images/vehicles/bikes/royal-enfield-himalayan-450.svg',
-    galleryImages: ['/images/vehicles/bikes/royal-enfield-himalayan-450.svg'],
-    altText: 'Royal Enfield Himalayan 450 Sherpa Adventure Tourer',
+    coverImage: '/images/Bike/royal-enfield-himalayan-450.avif',
+    galleryImages: ['/images/Bike/royal-enfield-himalayan-450.avif'],
+    altText: 'Royal Enfield Himalayan 450 Touring & Highway Motorcycle',
   },
   'royal-enfield-guerrilla-450': {
-    coverImage: '/images/vehicles/bikes/royal-enfield-guerrilla-450.svg',
-    galleryImages: ['/images/vehicles/bikes/royal-enfield-guerrilla-450.svg'],
-    altText: 'Royal Enfield Guerrilla 450 Modern Road Roadster',
+    coverImage: '/images/Bike/royal-enfield-guerrilla-450.avif',
+    galleryImages: ['/images/Bike/royal-enfield-guerrilla-450.avif'],
+    altText: 'Royal Enfield Guerrilla 450 Touring & Highway Motorcycle',
   },
   'honda-hness-cb350': {
-    coverImage: '/images/vehicles/bikes/honda-hness-cb350.svg',
-    galleryImages: ['/images/vehicles/bikes/honda-hness-cb350.svg'],
-    altText: "Honda H'ness CB350 Classic Highway Cruiser",
+    coverImage: '/images/Bike/honda-hness-cb350.avif',
+    galleryImages: ['/images/Bike/honda-hness-cb350.avif'],
+    altText: 'Honda H\'ness CB350 Touring & Highway Motorcycle',
   },
   'honda-cb350rs': {
-    coverImage: '/images/vehicles/bikes/honda-cb350rs.svg',
-    galleryImages: ['/images/vehicles/bikes/honda-cb350rs.svg'],
-    altText: 'Honda CB350RS Scrambler Styling Highway Bike',
+    coverImage: '/images/Bike/honda-cb350-rs.avif',
+    galleryImages: ['/images/Bike/honda-cb350-rs.avif'],
+    altText: 'Honda CB350RS Touring & Highway Motorcycle',
   },
   'suzuki-v-strom-sx': {
-    coverImage: '/images/vehicles/bikes/suzuki-v-strom-sx.svg',
-    galleryImages: ['/images/vehicles/bikes/suzuki-v-strom-sx.svg'],
-    altText: 'Suzuki V-Strom SX 250 Adventure Sports Tourer',
+    coverImage: '/images/Bike/suzuki-v-strom-sx.avif',
+    galleryImages: ['/images/Bike/suzuki-v-strom-sx.avif'],
+    altText: 'Suzuki V-Strom SX Touring & Highway Motorcycle',
   },
   'bajaj-dominar-400': {
-    coverImage: '/images/vehicles/bikes/bajaj-dominar-400.svg',
-    galleryImages: ['/images/vehicles/bikes/bajaj-dominar-400.svg'],
-    altText: 'Bajaj Dominar 400 Factory Tourer with Windshield & Pannier Racks',
+    coverImage: '/images/Bike/bajaj-dominar-400.avif',
+    galleryImages: ['/images/Bike/bajaj-dominar-400.avif'],
+    altText: 'Bajaj Dominar 400 Touring & Highway Motorcycle',
   },
-
-  // ==================== BIKES: SCOOTER CATEGORY ====================
   'honda-activa-6g': {
-    coverImage: '/images/vehicles/bikes/honda-activa-6g.svg',
-    galleryImages: ['/images/vehicles/bikes/honda-activa-6g.svg'],
-    altText: 'Honda Activa 6G Premium Family Commuter Scooter',
+    coverImage: '/images/Bike/honda-activa-6g.avif',
+    galleryImages: ['/images/Bike/honda-activa-6g.avif'],
+    altText: 'Honda Activa 6G Scooter Motorcycle',
   },
   'tvs-jupiter-125': {
-    coverImage: '/images/vehicles/bikes/tvs-jupiter-125.svg',
-    galleryImages: ['/images/vehicles/bikes/tvs-jupiter-125.svg'],
-    altText: 'TVS Jupiter 125 SmartXonnect Scooter',
+    coverImage: '/images/Bike/tvs-jupiter-125.avif',
+    galleryImages: ['/images/Bike/tvs-jupiter-125.avif'],
+    altText: 'TVS Jupiter 125 Scooter Motorcycle',
   },
   'suzuki-access-125': {
-    coverImage: '/images/vehicles/bikes/suzuki-access-125.svg',
-    galleryImages: ['/images/vehicles/bikes/suzuki-access-125.svg'],
-    altText: 'Suzuki Access 125 Special Edition Scooter',
+    coverImage: '/images/Bike/suzuki-access-125.avif',
+    galleryImages: ['/images/Bike/suzuki-access-125.avif'],
+    altText: 'Suzuki Access 125 Scooter Motorcycle',
   },
   'ather-450x': {
-    coverImage: '/images/vehicles/bikes/ather-450x.jpg',
-    galleryImages: [
-      '/images/vehicles/bikes/ather-450x.jpg',
-      '/images/vehicles/bikes/tvs-jupiter-125.svg',
-    ],
-    altText: 'Ather 450X Gen 3 Pro Electric Smart Scooter',
+    coverImage: '/images/Bike/ather-450x.avif',
+    galleryImages: ['/images/Bike/ather-450x.avif'],
+    altText: 'Ather 450X Scooter Motorcycle',
+  },
+  // Bike Aliases
+  'honda-cb350-rs': {
+    coverImage: '/images/Bike/honda-cb350-rs.avif',
+    galleryImages: ['/images/Bike/honda-cb350-rs.avif'],
+    altText: 'Honda CB350RS Scrambler Styling Highway Bike',
   },
 
-  // ==================== CARS: CATEGORY 1: HATCHBACKS ====================
+  // =========================================================================
+  // CARS (26 Models) - Source: /images/Car/
+  // =========================================================================
   'maruti-suzuki-alto-k10': {
-    coverImage: '/images/vehicles/cars/maruti-suzuki-alto-k10.svg',
-    galleryImages: ['/images/vehicles/cars/maruti-suzuki-alto-k10.svg'],
-    altText: 'Maruti Suzuki Alto K10 Economical City Hatchback',
+    coverImage: '/images/Car/maruti-suzuki-alto-k10.avif',
+    galleryImages: ['/images/Car/maruti-suzuki-alto-k10.avif'],
+    altText: 'Maruti Suzuki Alto K10 Hatchback Car',
   },
   'maruti-suzuki-celerio': {
-    coverImage: '/images/vehicles/cars/maruti-suzuki-celerio.svg',
-    galleryImages: ['/images/vehicles/cars/maruti-suzuki-celerio.svg'],
-    altText: 'Maruti Suzuki Celerio High Mileage Hatchback',
+    coverImage: '/images/Car/maruti-suzuki-celerio.avif',
+    galleryImages: ['/images/Car/maruti-suzuki-celerio.avif'],
+    altText: 'Maruti Suzuki Celerio Hatchback Car',
   },
   'maruti-suzuki-swift': {
-    coverImage: '/images/vehicles/cars/maruti-suzuki-swift.svg',
-    galleryImages: ['/images/vehicles/cars/maruti-suzuki-swift.svg'],
-    altText: 'Maruti Suzuki Swift 2024 Z-Series Hatchback',
+    coverImage: '/images/Car/maruti-suzuki-swift.avif',
+    galleryImages: ['/images/Car/maruti-suzuki-swift.avif'],
+    altText: 'Maruti Suzuki Swift Hatchback Car',
   },
   'maruti-suzuki-baleno': {
-    coverImage: '/images/vehicles/cars/maruti-suzuki-baleno.svg',
-    galleryImages: ['/images/vehicles/cars/maruti-suzuki-baleno.svg'],
-    altText: 'Maruti Suzuki Baleno Premium Nexa Hatchback',
+    coverImage: '/images/Car/maruti-suzuki-baleno.avif',
+    galleryImages: ['/images/Car/maruti-suzuki-baleno.avif'],
+    altText: 'Maruti Suzuki Baleno Hatchback Car',
   },
   'hyundai-grand-i10-nios': {
-    coverImage: '/images/vehicles/cars/hyundai-grand-i10-nios.svg',
-    galleryImages: ['/images/vehicles/cars/hyundai-grand-i10-nios.svg'],
-    altText: 'Hyundai Grand i10 Nios Feature-Loaded Hatchback',
+    coverImage: '/images/Car/hyundai-grand-i10-nios.avif',
+    galleryImages: ['/images/Car/hyundai-grand-i10-nios.avif'],
+    altText: 'Hyundai Grand i10 Nios Hatchback Car',
   },
   'hyundai-i20': {
-    coverImage: '/images/vehicles/cars/hyundai-i20.svg',
-    galleryImages: ['/images/vehicles/cars/hyundai-i20.svg'],
-    altText: 'Hyundai i20 Asta Premium Hatchback with Sunroof',
+    coverImage: '/images/Car/hyundai-i20.avif',
+    galleryImages: ['/images/Car/hyundai-i20.avif'],
+    altText: 'Hyundai i20 Hatchback Car',
   },
   'tata-tiago': {
-    coverImage: '/images/vehicles/cars/tata-tiago.svg',
-    galleryImages: ['/images/vehicles/cars/tata-tiago.svg'],
-    altText: 'Tata Tiago 4-Star Safety Rated Hatchback',
+    coverImage: '/images/Car/tata-tiago.jpg',
+    galleryImages: ['/images/Car/tata-tiago.jpg'],
+    altText: 'Tata Tiago Hatchback Car',
   },
   'tata-altroz': {
-    coverImage: '/images/vehicles/cars/tata-altroz.svg',
-    galleryImages: ['/images/vehicles/cars/tata-altroz.svg'],
-    altText: 'Tata Altroz 5-Star Global NCAP Premium Hatchback',
+    coverImage: '/images/Car/tata-altroz.avif',
+    galleryImages: ['/images/Car/tata-altroz.avif'],
+    altText: 'Tata Altroz Hatchback Car',
   },
   'toyota-glanza': {
-    coverImage: '/images/vehicles/cars/toyota-glanza.svg',
-    galleryImages: ['/images/vehicles/cars/toyota-glanza.svg'],
-    altText: 'Toyota Glanza G Variant Premium City Car',
+    coverImage: '/images/Car/toyota-glanza.avif',
+    galleryImages: ['/images/Car/toyota-glanza.avif'],
+    altText: 'Toyota Glanza Hatchback Car',
   },
-
-  // ==================== CARS: CATEGORY 2: SEDANS ====================
   'maruti-suzuki-dzire': {
-    coverImage: '/images/vehicles/cars/maruti-suzuki-dzire.svg',
-    galleryImages: ['/images/vehicles/cars/maruti-suzuki-dzire.svg'],
-    altText: 'Maruti Suzuki Dzire 5-Star NCAP Compact Sedan',
+    coverImage: '/images/Car/maruti-suzuki-dzire.avif',
+    galleryImages: ['/images/Car/maruti-suzuki-dzire.avif'],
+    altText: 'Maruti Suzuki Dzire Sedan Car',
   },
   'honda-amaze': {
-    coverImage: '/images/vehicles/cars/honda-amaze.svg',
-    galleryImages: ['/images/vehicles/cars/honda-amaze.svg'],
-    altText: 'Honda Amaze CVT Automatic Comfortable Sedan',
+    coverImage: '/images/Car/honda-amaze.avif',
+    galleryImages: ['/images/Car/honda-amaze.avif'],
+    altText: 'Honda Amaze Sedan Car',
   },
   'honda-city': {
-    coverImage: '/images/vehicles/cars/honda-city.svg',
-    galleryImages: ['/images/vehicles/cars/honda-city.svg'],
-    altText: 'Honda City 5th Gen Executive Luxury Sedan with ADAS',
+    coverImage: '/images/Car/honda-city.avif',
+    galleryImages: ['/images/Car/honda-city.avif'],
+    altText: 'Honda City Sedan Car',
   },
   'hyundai-verna': {
-    coverImage: '/images/vehicles/cars/hyundai-verna.svg',
-    galleryImages: ['/images/vehicles/cars/hyundai-verna.svg'],
-    altText: 'Hyundai Verna Turbo DCT 5-Star NCAP Sedan',
+    coverImage: '/images/Car/hyundai-verna.avif',
+    galleryImages: ['/images/Car/hyundai-verna.avif'],
+    altText: 'Hyundai Verna Sedan Car',
   },
   'volkswagen-virtus': {
-    coverImage: '/images/vehicles/cars/volkswagen-virtus.svg',
-    galleryImages: ['/images/vehicles/cars/volkswagen-virtus.svg'],
-    altText: 'Volkswagen Virtus GT TSI Performance Sedan',
+    coverImage: '/images/Car/volkswagen-virtus.avif',
+    galleryImages: ['/images/Car/volkswagen-virtus.avif'],
+    altText: 'Volkswagen Virtus Sedan Car',
   },
   'skoda-slavia': {
-    coverImage: '/images/vehicles/cars/skoda-slavia.svg',
-    galleryImages: ['/images/vehicles/cars/skoda-slavia.svg'],
-    altText: 'Skoda Slavia Style 1.5 TSI European Sedan',
+    coverImage: '/images/Car/skoda-slavia.avif',
+    galleryImages: ['/images/Car/skoda-slavia.avif'],
+    altText: 'Skoda Slavia Sedan Car',
   },
-
-  // ==================== CARS: CATEGORY 3: COMPACT SUVs AND SUVs ====================
   'maruti-suzuki-brezza': {
-    coverImage: '/images/vehicles/cars/maruti-suzuki-brezza.svg',
-    galleryImages: ['/images/vehicles/cars/maruti-suzuki-brezza.svg'],
-    altText: 'Maruti Suzuki Brezza ZXi Urban Compact SUV',
+    coverImage: '/images/Car/maruti-suzuki-brezza.avif',
+    galleryImages: ['/images/Car/maruti-suzuki-brezza.avif'],
+    altText: 'Maruti Suzuki Brezza SUV Car',
   },
   'tata-nexon': {
-    coverImage: '/images/vehicles/cars/tata-nexon.svg',
-    galleryImages: ['/images/vehicles/cars/tata-nexon.svg'],
-    altText: 'Tata Nexon Fearless 5-Star NCAP Compact SUV',
+    coverImage: '/images/Car/tata-nexon.jpeg',
+    galleryImages: ['/images/Car/tata-nexon.jpeg'],
+    altText: 'Tata Nexon SUV Car',
   },
   'hyundai-venue': {
-    coverImage: '/images/vehicles/cars/hyundai-venue.svg',
-    galleryImages: ['/images/vehicles/cars/hyundai-venue.svg'],
-    altText: 'Hyundai Venue SX Turbo Compact SUV',
+    coverImage: '/images/Car/hyundai-venue.avif',
+    galleryImages: ['/images/Car/hyundai-venue.avif'],
+    altText: 'Hyundai Venue SUV Car',
   },
   'kia-sonet': {
-    coverImage: '/images/vehicles/cars/kia-sonet.svg',
-    galleryImages: ['/images/vehicles/cars/kia-sonet.svg'],
-    altText: 'Kia Sonet HTX Diesel Automatic Compact SUV',
+    coverImage: '/images/Car/kia-sonet.avif',
+    galleryImages: ['/images/Car/kia-sonet.avif'],
+    altText: 'Kia Sonet SUV Car',
   },
   'hyundai-creta': {
-    coverImage: '/images/vehicles/cars/hyundai-creta.jpg',
-    galleryImages: [
-      '/images/vehicles/cars/hyundai-creta.jpg',
-      '/images/vehicles/cars/hyundai-creta.svg',
-    ],
-    altText: 'Hyundai Creta SX (O) Turbo Petrol Mid-Size SUV with Panoramic Sunroof',
+    coverImage: '/images/Car/hyundai-creta.avif',
+    galleryImages: ['/images/Car/hyundai-creta.avif'],
+    altText: 'Hyundai Creta SUV Car',
   },
   'kia-seltos': {
-    coverImage: '/images/vehicles/cars/kia-seltos.svg',
-    galleryImages: ['/images/vehicles/cars/kia-seltos.svg'],
-    altText: 'Kia Seltos GTX Plus ADAS Mid-Size SUV',
+    coverImage: '/images/Car/kia-seltos.avif',
+    galleryImages: ['/images/Car/kia-seltos.avif'],
+    altText: 'Kia Seltos SUV Car',
   },
   'maruti-suzuki-grand-vitara': {
-    coverImage: '/images/vehicles/cars/maruti-suzuki-grand-vitara.svg',
-    galleryImages: ['/images/vehicles/cars/maruti-suzuki-grand-vitara.svg'],
-    altText: 'Maruti Suzuki Grand Vitara Strong Hybrid SUV',
+    coverImage: '/images/Car/maruti-suzuki-grand-vitara.avif',
+    galleryImages: ['/images/Car/maruti-suzuki-grand-vitara.avif'],
+    altText: 'Maruti Suzuki Grand Vitara SUV Car',
   },
   'mahindra-scorpio-n': {
-    coverImage: '/images/vehicles/cars/mahindra-scorpio-n.svg',
-    galleryImages: ['/images/vehicles/cars/mahindra-scorpio-n.svg'],
-    altText: 'Mahindra Scorpio-N Z8L 4x4 7-Seater Tough SUV',
+    coverImage: '/images/Car/mahindra scorpio-n.avif',
+    galleryImages: ['/images/Car/mahindra scorpio-n.avif'],
+    altText: 'Mahindra Scorpio-N SUV Car',
   },
-
-  // ==================== CARS: CATEGORY 4: FAMILY MPVs ====================
   'maruti-suzuki-ertiga': {
-    coverImage: '/images/vehicles/cars/maruti-suzuki-ertiga.svg',
-    galleryImages: ['/images/vehicles/cars/maruti-suzuki-ertiga.svg'],
-    altText: 'Maruti Suzuki Ertiga ZXi Plus 7-Seater Family MPV',
+    coverImage: '/images/Car/maruti-suzuki-ertiga.avif',
+    galleryImages: ['/images/Car/maruti-suzuki-ertiga.avif'],
+    altText: 'Maruti Suzuki Ertiga Family MPV Car',
   },
   'toyota-innova-crysta': {
-    coverImage: '/images/vehicles/cars/toyota-innova-crysta.svg',
-    galleryImages: ['/images/vehicles/cars/toyota-innova-crysta.svg'],
-    altText: 'Toyota Innova Crysta 2.4 VX 7-Seater Highway Touring MPV',
+    coverImage: '/images/Car/toyota-innova-crysta.avif',
+    galleryImages: ['/images/Car/toyota-innova-crysta.avif'],
+    altText: 'Toyota Innova Crysta Family MPV Car',
   },
-
-  // ==================== LUXURY FLEET ====================
   'mercedes-benz-e-class': {
-    coverImage: '/images/vehicles/cars/mercedes-benz-e-class.jpg',
-    galleryImages: [
-      '/images/vehicles/cars/mercedes-benz-e-class.jpg',
-      '/images/hero_automotive_duo.jpg',
-    ],
-    altText: 'Mercedes-Benz E-Class Long Wheelbase Chauffeur-Ready Luxury Sedan',
+    coverImage: '/images/Car/mercedes-benz-e-class.avif',
+    galleryImages: ['/images/Car/mercedes-benz-e-class.avif'],
+    altText: 'Mercedes-Benz E-Class Sedan Car',
+  },
+  // Car Aliases
+  'mahindra-scorpio-n-z8l': {
+    coverImage: '/images/Car/mahindra scorpio-n.avif',
+    galleryImages: ['/images/Car/mahindra scorpio-n.avif'],
+    altText: 'Mahindra Scorpio-N Z8L 4x4 7-Seater Tough SUV',
   },
 };
 
@@ -335,10 +326,34 @@ export function normalizeVehicleSlug(nameOrModel: string): string {
 }
 
 /**
+ * Returns safe encoded image URL handling spaces and special characters.
+ */
+export function getSafeImageUrl(path: string): string {
+  if (!path) return '';
+  // If already encoded or data/http URI, return clean
+  if (path.startsWith('http://') || path.startsWith('https://') || path.startsWith('data:')) {
+    return path;
+  }
+  return encodeURI(decodeURI(path));
+}
+
+/**
  * Returns the exact verified vehicle image or a clean neutral branded placeholder.
  * Guarantees zero wrong vehicle model photos!
  */
 export function getVehicleImage(modelSlugOrName: string, vehicleType: 'car' | 'bike' = 'car'): VehicleImageInfo {
+  if (!modelSlugOrName) {
+    const fallbackCover =
+      vehicleType === 'bike'
+        ? '/images/Bike/hero-splendor-plus.avif'
+        : '/images/Car/maruti-suzuki-swift.avif';
+    return {
+      coverImage: fallbackCover,
+      galleryImages: [fallbackCover],
+      altText: `RentRide Verified ${vehicleType === 'bike' ? 'Two-Wheeler' : 'Self-Drive Car'}`,
+    };
+  }
+
   const slug = normalizeVehicleSlug(modelSlugOrName);
 
   // Exact match in registry
@@ -346,18 +361,20 @@ export function getVehicleImage(modelSlugOrName: string, vehicleType: 'car' | 'b
     return VEHICLE_IMAGE_REGISTRY[slug];
   }
 
-  // Partial match by key containment
+  // Normalized matching without hyphens
+  const compactSlug = slug.replace(/-/g, '');
   for (const [key, value] of Object.entries(VEHICLE_IMAGE_REGISTRY)) {
-    if (slug.includes(key) || key.includes(slug)) {
+    const compactKey = key.replace(/-/g, '');
+    if (compactSlug === compactKey || compactSlug.includes(compactKey) || compactKey.includes(compactSlug)) {
       return value;
     }
   }
 
-  // Fallback neutral SVG tailored strictly to vehicle type
+  // Fallback authentic image tailored strictly to vehicle type
   const fallbackCover =
     vehicleType === 'bike'
-      ? '/images/vehicles/bikes/hero-splendor-plus.svg'
-      : '/images/vehicles/cars/maruti-suzuki-swift.svg';
+      ? '/images/Bike/hero-splendor-plus.avif'
+      : '/images/Car/maruti-suzuki-swift.avif';
 
   return {
     coverImage: fallbackCover,
